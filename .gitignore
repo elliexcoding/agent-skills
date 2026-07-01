@@ -1,0 +1,62 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor and IDE metadata
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs and local runtime output
+*.log
+logs/
+tmp/
+temp/
+.tmp/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+.venv/
+venv/
+env/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# JavaScript and TypeScript dependencies/build output
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+build/
+coverage/
+
+# Agent and model local artifacts
+.claude/settings.local.json
+.codex/
+*.transcript
+*.conversation
+*.prompt-cache
+
+# Archives and generated packages
+*.zip
+*.tar
+*.tar.gz
+*.tgz
