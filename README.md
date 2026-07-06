@@ -11,6 +11,7 @@ agent runtime is being used.
 
 | Skill | Purpose |
 | --- | --- |
+| `agent-handoff` | Creates concise, evidence-backed handoffs between AI agents, Codex threads, Claude Code sessions, worktrees, or humans so work can resume safely. |
 | `code-review` | Performs senior-engineer code reviews with severity-ranked findings, concrete file references, validation gaps, and risk-focused review discipline. |
 | `github-pull-request` | Drafts or creates high-quality GitHub pull requests with clear titles, useful descriptions, validation evidence, and a final engineering-quality checklist. |
 | `harness-engineering` | Seeds or improves agent-first project harness files such as `AGENTS.md`, architecture notes, quality gates, execution-plan folders, decision records, and technical-debt tracking. |
@@ -21,6 +22,10 @@ agent runtime is being used.
 
 ```text
 .
+├── agent-handoff/
+│   ├── SKILL.md
+│   ├── references/
+│   └── scripts/
 ├── code-review/
 │   ├── SKILL.md
 │   └── references/
