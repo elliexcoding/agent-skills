@@ -11,6 +11,7 @@ agent runtime is being used.
 
 | Skill | Purpose |
 | --- | --- |
+| `github-pull-request` | Drafts or creates high-quality GitHub pull requests with clear titles, useful descriptions, validation evidence, and a final engineering-quality checklist. |
 | `harness-engineering` | Seeds or improves agent-first project harness files such as `AGENTS.md`, architecture notes, quality gates, execution-plan folders, decision records, and technical-debt tracking. |
 | `rust-tech-lead` | Provides senior Rust engineering guidance for architecture, debugging, testing, performance work, and review. |
 
@@ -18,6 +19,9 @@ agent runtime is being used.
 
 ```text
 .
+├── github-pull-request/
+│   ├── SKILL.md
+│   └── references/
 ├── harness-engineering/
 │   ├── SKILL.md
 │   ├── agents/

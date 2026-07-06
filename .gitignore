@@ -51,6 +51,7 @@ coverage/
 # Agent and model local artifacts
 .claude/settings.local.json
 .codex/
+.system/
 *.transcript
 *.conversation
 *.prompt-cache
