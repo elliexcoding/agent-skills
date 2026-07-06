@@ -14,6 +14,7 @@ agent runtime is being used.
 | `github-pull-request` | Drafts or creates high-quality GitHub pull requests with clear titles, useful descriptions, validation evidence, and a final engineering-quality checklist. |
 | `harness-engineering` | Seeds or improves agent-first project harness files such as `AGENTS.md`, architecture notes, quality gates, execution-plan folders, decision records, and technical-debt tracking. |
 | `rust-tech-lead` | Provides senior Rust engineering guidance for architecture, debugging, testing, performance work, and review. |
+| `worktree-branch` | Creates meaningful task-based branches for new or detached agent worktrees so temporary work directories remain identifiable. |
 
 ## Repository Layout
 
@@ -28,8 +29,11 @@ agent runtime is being used.
 │   ├── assets/
 │   ├── references/
 │   └── scripts/
-└── rust-tech-lead/
-    └── SKILL.md
+├── rust-tech-lead/
+│   └── SKILL.md
+└── worktree-branch/
+    ├── SKILL.md
+    └── scripts/
 ```
 
 Each skill should keep `SKILL.md` as the main entry point. Supporting material is
