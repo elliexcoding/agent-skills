@@ -15,6 +15,7 @@ agent runtime is being used.
 | `code-review` | Performs senior-engineer code reviews with severity-ranked findings, concrete file references, validation gaps, and risk-focused review discipline. |
 | `github-pull-request` | Drafts or creates high-quality GitHub pull requests with clear titles, useful descriptions, validation evidence, and a final engineering-quality checklist. |
 | `harness-engineering` | Seeds or improves agent-first project harness files such as `AGENTS.md`, architecture notes, quality gates, execution-plan folders, decision records, and technical-debt tracking. |
+| `refactor-safely` | Guides behavior-preserving refactors with explicit scope, characterization tests, small steps, validation, and reviewable change discipline. |
 | `rust-tech-lead` | Provides senior Rust engineering guidance for architecture, debugging, testing, performance work, and review. |
 | `worktree-branch` | Creates meaningful task-based branches for new or detached agent worktrees so temporary work directories remain identifiable. |
 
@@ -38,6 +39,9 @@ agent runtime is being used.
 │   ├── assets/
 │   ├── references/
 │   └── scripts/
+├── refactor-safely/
+│   ├── SKILL.md
+│   └── references/
 ├── rust-tech-lead/
 │   └── SKILL.md
 └── worktree-branch/
