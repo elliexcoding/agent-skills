@@ -12,6 +12,7 @@ agent runtime is being used.
 | Skill | Purpose |
 | --- | --- |
 | `agent-handoff` | Creates concise, evidence-backed handoffs between AI agents, Codex threads, Claude Code sessions, worktrees, or humans so work can resume safely. |
+| `adversarial-review` | Independently challenges software changes and agent completion claims with counterexamples, adverse-condition analysis, and evidence-backed findings. |
 | `code-review` | Performs senior-engineer code reviews with severity-ranked findings, concrete file references, validation gaps, and risk-focused review discipline. |
 | `github-pull-request` | Drafts or creates high-quality GitHub pull requests with clear titles, useful descriptions, validation evidence, and a final engineering-quality checklist. |
 | `harness-engineering` | Seeds or improves agent-first project harness files such as `AGENTS.md`, architecture notes, quality gates, execution-plan folders, decision records, and technical-debt tracking. |
@@ -27,6 +28,10 @@ agent runtime is being used.
 │   ├── SKILL.md
 │   ├── references/
 │   └── scripts/
+├── adversarial-review/
+│   ├── SKILL.md
+│   ├── agents/
+│   └── references/
 ├── code-review/
 │   ├── SKILL.md
 │   └── references/
@@ -71,6 +76,22 @@ Use the skill directory as the unit of installation. For each agent runtime:
 The skills are written to be readable by both Claude Code and Codex-style
 systems. Tool-specific metadata should be additive and should not replace the
 portable `SKILL.md` instructions.
+
+## Lazy Loading
+
+This repository is designed for lazy loading:
+
+- Agent runtimes should index skill names and descriptions for discovery.
+- A skill's `SKILL.md` should be loaded only when the task matches that skill.
+- Files in `references/`, `scripts/`, `assets/`, and `agents/` should be loaded
+  or executed only when the active skill explicitly needs them.
+- Do not paste every `SKILL.md` into a global `AGENTS.md`, `CLAUDE.md`, startup
+  prompt, or tool configuration. That defeats the purpose of using skills and
+  wastes context-window tokens.
+
+When installing these skills, prefer copying or symlinking the top-level skill
+directories into a tool-supported skills location over importing their full text
+into a single global instruction file.
 
 ## Authoring Conventions
 

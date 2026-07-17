@@ -1,0 +1,4 @@
+interface:
+  display_name: "Adversarial Review"
+  short_description: "Challenge implementations with evidence"
+  default_prompt: "Use $adversarial-review to independently challenge this change and report evidence-backed failure modes."
