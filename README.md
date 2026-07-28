@@ -18,6 +18,7 @@ agent runtime is being used.
 | `harness-engineering` | Seeds or improves agent-first project harness files such as `AGENTS.md`, architecture notes, quality gates, execution-plan folders, decision records, and technical-debt tracking. |
 | `refactor-safely` | Guides behavior-preserving refactors with explicit scope, characterization tests, small steps, validation, and reviewable change discipline. |
 | `rust-tech-lead` | Provides senior Rust engineering guidance for architecture, debugging, testing, performance work, and review. |
+| `scope-software-task` | Turns ambiguous software changes into repository-grounded task contracts and independently verifiable implementation plans. |
 | `worktree-branch` | Creates meaningful task-based branches for new or detached agent worktrees so temporary work directories remain identifiable. |
 
 ## Repository Layout
@@ -49,6 +50,10 @@ agent runtime is being used.
 │   └── references/
 ├── rust-tech-lead/
 │   └── SKILL.md
+├── scope-software-task/
+│   ├── SKILL.md
+│   ├── agents/
+│   └── references/
 └── worktree-branch/
     ├── SKILL.md
     └── scripts/
