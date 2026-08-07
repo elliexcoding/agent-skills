@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fix Dependabot Alert"
+  short_description: "Fix one Dependabot alert with a slow loop"
+  default_prompt: "Use $fix-dependabot-alert to fix one open Dependabot alert in the repository I select and prepare a small, verified pull request for human review."
