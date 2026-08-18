@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Pull Request"
+  short_description: "Risk-focused, read-only pull request review"
+  default_prompt: "Use $review-pull-request to review this PR and recommend a verdict without publishing comments."
