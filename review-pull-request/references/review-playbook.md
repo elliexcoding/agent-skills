@@ -36,7 +36,7 @@ For oversized, generated, binary, dependency-heavy, or incomplete PRs, state the
 
 ## Report contract
 
-Write the report in this exact order: findings; recommended verdict and confidence; review coverage; CI and local-validation evidence; open questions; residual risks and limitations. Each finding contains title, location, trigger, consequence, evidence, and smallest remediation. Use `No findings.` when none meet the threshold.
+Write the report in this exact order: findings; recommended verdict and confidence; review coverage; CI and local-validation evidence; open questions; residual risks and limitations. Order findings by severity and then confidence. Each finding contains a concise imperative title, location, trigger, consequence, evidence, and smallest remediation. Use `No findings.` when none meet the threshold.
 
 ## Comment quality
 

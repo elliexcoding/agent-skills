@@ -26,6 +26,8 @@ description: Use when reviewing a pull request, proposed merge, patchset, or sta
 - Inspect existing CI status and relevant logs.
 - Never trigger, rerun, approve, cancel, or otherwise mutate cloud CI.
 - Run a targeted local check only when it resolves a concrete concern or material evidence gap.
+- Report every local command actually run and its result.
+- When an important check was not run, state why and what uncertainty remains.
 - Treat CI as evidence, not proof; review changed tests themselves.
 
 ## Evidence Threshold
@@ -36,7 +38,7 @@ A finding needs a violated expectation, reachable trigger, precise path, materia
 
 - Always read `references/review-playbook.md` for nontrivial reviews.
 - Read `references/python.md` completely when `.py`, Python packaging, Python service, or Python runtime behavior changes.
-- Read `references/rust.md` completely when `.rs`, `Cargo.toml`, features, unsafe/FFI, or Rust concurrency changes.
+- Read `references/rust.md` completely when `.rs`, `Cargo.toml`, `Cargo.lock`, features, unsafe/FFI, or Rust concurrency changes.
 - Read `references/kubernetes.md` completely when Kubernetes YAML, Helm-rendered resources, Kustomize output, controllers, or cluster policy changes.
 - Read `references/terraform.md` completely when `.tf`, `.tf.json`, `.terraform.lock.hcl`, modules, state migrations, or Terraform plan output changes.
 - Read `references/security.md` completely when trust boundaries, identity, permissions, untrusted input, secrets, cryptography, dependencies, CI, or supply-chain behavior changes.
@@ -44,7 +46,16 @@ A finding needs a violated expectation, reachable trigger, precise path, materia
 
 ## Output
 
-Use findings, recommended verdict and confidence, review coverage, CI/local evidence, open questions, and residual risks in that order. State `No findings.` when appropriate; never invent an issue to appear thorough.
+Use this report order:
+
+1. Findings.
+2. Recommended verdict and confidence.
+3. Review coverage.
+4. CI/local evidence.
+5. Open questions.
+6. Residual risks.
+
+Use exactly one recommended verdict: `APPROVE`, `COMMENT`, `REQUEST CHANGES`, or `INCONCLUSIVE`. Use `INCONCLUSIVE` when missing, pending, or failed essential evidence prevents a responsible merge-readiness judgment; missing evidence itself is not an actionable finding. State `No findings.` when appropriate; never invent an issue to appear thorough.
 
 ## Red Flags
 
