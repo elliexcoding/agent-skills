@@ -5,6 +5,15 @@ are not infallible universal policy. Apply them to the repository's declared
 requirements and versions. Do not turn version-specific guidance into a review
 requirement unless the PR declares the relevant version.
 
+## Contents
+
+- [General review](#general-review)
+- [Security](#security)
+- [Python](#python)
+- [Rust](#rust)
+- [Kubernetes](#kubernetes)
+- [Terraform](#terraform)
+
 ## General review
 
 ### `PR-STANDARD`
