@@ -37,6 +37,8 @@ A finding needs a violated expectation, reachable trigger, precise path, materia
 - Always read `references/review-playbook.md` for nontrivial reviews.
 - Read `references/python.md` completely when `.py`, Python packaging, Python service, or Python runtime behavior changes.
 - Read `references/rust.md` completely when `.rs`, `Cargo.toml`, features, unsafe/FFI, or Rust concurrency changes.
+- Read `references/kubernetes.md` completely when Kubernetes YAML, Helm-rendered resources, Kustomize output, controllers, or cluster policy changes.
+- Read `references/terraform.md` completely when `.tf`, `.tf.json`, `.terraform.lock.hcl`, modules, state migrations, or Terraform plan output changes.
 
 ## Output
 
