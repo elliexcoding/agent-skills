@@ -35,7 +35,8 @@ A finding needs a violated expectation, reachable trigger, precise path, materia
 ## Reference Routing
 
 - Always read `references/review-playbook.md` for nontrivial reviews.
-- Add direct conditional links for each specialist reference in later tasks.
+- Read `references/python.md` completely when `.py`, Python packaging, Python service, or Python runtime behavior changes.
+- Read `references/rust.md` completely when `.rs`, `Cargo.toml`, features, unsafe/FFI, or Rust concurrency changes.
 
 ## Output
 
