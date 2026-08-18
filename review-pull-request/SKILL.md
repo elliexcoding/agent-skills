@@ -39,6 +39,8 @@ A finding needs a violated expectation, reachable trigger, precise path, materia
 - Read `references/rust.md` completely when `.rs`, `Cargo.toml`, features, unsafe/FFI, or Rust concurrency changes.
 - Read `references/kubernetes.md` completely when Kubernetes YAML, Helm-rendered resources, Kustomize output, controllers, or cluster policy changes.
 - Read `references/terraform.md` completely when `.tf`, `.tf.json`, `.terraform.lock.hcl`, modules, state migrations, or Terraform plan output changes.
+- Read `references/security.md` completely when trust boundaries, identity, permissions, untrusted input, secrets, cryptography, dependencies, CI, or supply-chain behavior changes.
+- Read `references/source-notes.md` when maintaining this skill or explaining the professional basis for a review control.
 
 ## Output
 
