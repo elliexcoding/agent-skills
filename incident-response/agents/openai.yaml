@@ -1,0 +1,4 @@
+interface:
+  display_name: "Incident Response"
+  short_description: "Coordinate production incident response safely"
+  default_prompt: "Use $incident-response to coordinate this active production incident with evidence, authorization gates, and recovery criteria."
