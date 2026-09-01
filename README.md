@@ -18,6 +18,7 @@ agent runtime is being used.
 | `github-pull-request` | Drafts or creates high-quality GitHub pull requests with clear titles, useful descriptions, validation evidence, and a final engineering-quality checklist. |
 | `harness-engineering` | Seeds or improves agent-first project harness files such as `AGENTS.md`, architecture notes, quality gates, execution-plan folders, decision records, and technical-debt tracking. |
 | `refactor-safely` | Guides behavior-preserving refactors with explicit scope, characterization tests, small steps, validation, and reviewable change discipline. |
+| `refreshing-linear-issues` | Records timestamped implementation updates in Linear issue bodies and posts a confirmation comment after the body change is verified. |
 | `review-pull-request` | Performs read-only, L5-calibrated pull-request reviews with evidence-backed findings and deep Python, Rust, Kubernetes, Terraform, and security lenses. |
 | `rust-tech-lead` | Provides senior Rust engineering guidance for architecture, debugging, testing, performance work, and review. |
 | `scope-software-task` | Turns ambiguous software changes into repository-grounded task contracts and independently verifiable implementation plans. |
@@ -54,6 +55,9 @@ agent runtime is being used.
 ├── refactor-safely/
 │   ├── SKILL.md
 │   └── references/
+├── refreshing-linear-issues/
+│   ├── SKILL.md
+│   └── agents/
 ├── review-pull-request/
 │   ├── SKILL.md
 │   ├── agents/

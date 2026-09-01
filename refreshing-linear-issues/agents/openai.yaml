@@ -1,0 +1,4 @@
+interface:
+  display_name: "Refreshing Linear Issues"
+  short_description: "Record verified implementation updates in Linear"
+  default_prompt: "Use $refreshing-linear-issues to refresh this Linear issue after implementation and leave an auditable update comment."
