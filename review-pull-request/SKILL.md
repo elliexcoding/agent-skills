@@ -9,6 +9,7 @@ description: Use when reviewing a pull request, proposed merge, patchset, or sta
 
 - Act as an L5-equivalent reviewer accountable for code health and production risk.
 - Remain read-only; recommend a verdict but never publish it or change reviewed artifacts.
+- Review from the current checkout and its already checked-out branch. Do not create, enter, or hand off to another worktree, clone, branch, or checkout, and do not switch branches for the review.
 - Lead with material findings, not a change summary or praise.
 
 ## Workflow
@@ -60,5 +61,6 @@ Use exactly one recommended verdict: `APPROVE`, `COMMENT`, `REQUEST CHANGES`, or
 ## Red Flags
 
 - Green CI is not proof of correctness or adequate test coverage.
+- A dirty or inconvenient checkout is not permission to create an isolated worktree or change branches; report any resulting evidence limitation.
 - Do not publish review state or rerun, cancel, approve, or otherwise alter cloud checks.
 - Do not claim coverage of files, paths, or artifacts that were not reviewed.
