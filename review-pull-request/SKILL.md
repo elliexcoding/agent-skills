@@ -22,6 +22,13 @@ description: Use when reviewing a pull request, proposed merge, patchset, or sta
 6. Disconfirm candidate findings by searching for guards, invariants, tests, and caller guarantees.
 7. Report findings, verdict, evidence, coverage, and residual risk.
 
+## Linked Linear Context
+
+- When the user supplies a Linear issue URL, or the PR links one, retrieve the review-relevant issue context through the runtime's native Linear MCP tools in Codex or Claude. Discover or load those MCP tools when needed.
+- Do not use browser, web, screenshot, or computer-use tools to access Linear, even when an authenticated browser session is available or MCP discovery takes longer.
+- If Linear MCP is unavailable or unauthorised, report the missing context as an evidence limitation and continue with available evidence. Use `INCONCLUSIVE` only when that context is essential to a responsible merge-readiness judgment.
+- Keep Linear access read-only and fetch only material context, such as the issue description, acceptance criteria, relevant comments, and linked or parent issues.
+
 ## CI And Local Evidence
 
 - Inspect existing CI status and relevant logs.
@@ -62,5 +69,6 @@ Use exactly one recommended verdict: `APPROVE`, `COMMENT`, `REQUEST CHANGES`, or
 
 - Green CI is not proof of correctness or adequate test coverage.
 - A dirty or inconvenient checkout is not permission to create an isolated worktree or change branches; report any resulting evidence limitation.
+- A ready authenticated Linear browser tab or an extra MCP discovery step is not a reason to use computer-use for Linear.
 - Do not publish review state or rerun, cancel, approve, or otherwise alter cloud checks.
 - Do not claim coverage of files, paths, or artifacts that were not reviewed.
