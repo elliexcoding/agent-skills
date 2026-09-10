@@ -2,3 +2,6 @@ interface:
   display_name: "Scope Software Task"
   short_description: "Turn ambiguous changes into executable plans"
   default_prompt: "Use $scope-software-task to investigate this software task, clarify its contract, and decompose it into independently verifiable work."
+
+policy:
+  allow_implicit_invocation: false
