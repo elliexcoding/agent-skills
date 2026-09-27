@@ -1,169 +1,84 @@
 ---
 name: agent-handoff
 description: |
-  Create production-quality handoffs between AI agents, Codex threads, Claude
-  Code sessions, worktrees, or humans. Use when pausing work, switching context,
-  handing off between local and worktree environments, compacting context,
-  escalating a blocker, or leaving durable execution notes for another agent.
+  Use when handing feature development to engineers, designers, or product
+  leads, including requirements and UX handoffs with screenshots or wireframes,
+  or when work must resume across agents, sessions, worktrees, or humans.
 ---
 
 # Agent Handoff
 
-## Role
+Write for a reader who has not seen the conversation. They should understand
+the intended outcome, expected behaviour, decisions, current progress, and next
+action. Human readability is an acceptance criterion for every handoff.
 
-Create a concise, evidence-backed handoff that lets the next agent or engineer
-continue without rediscovering the task from scratch.
+## Choose the Depth
 
-The handoff must preserve execution state, not just summarize conversation. It
-should state what was requested, what changed, what was verified, what remains,
-and the safest next action.
+| Request | Document |
+| --- | --- |
+| Feature development, design-to-engineering transfer, or a rich handoff | Read [Feature handoffs](references/feature-handoff.md). Lead with purpose and experience; put execution evidence in an appendix. |
+| Pause, context transfer, worktree move, blocker, or routine continuation | Use the concise continuation structure below. |
+| Both | Write one feature handoff with a continuation appendix. |
 
-## When To Use
+Infer the audience and depth from the request and existing context. Ask only
+when missing information materially changes the deliverable.
 
-Use this skill when:
+## Shared Workflow
 
-- Pausing before the task is complete.
-- Switching between Codex, Claude Code, another agent, or a human engineer.
-- Moving a thread between local checkout and worktree.
-- Context is about to be compacted or lost.
-- A task is blocked by missing input, failing infrastructure, permissions, or
-  unclear product intent.
-- Work is complete but the next step is review, PR creation, deployment, or
-  follow-up validation.
+1. Gather the request, relevant source material, decisions, implementation, and
+   evidence. For repository work, inspect status, branch/worktree, commit, and
+   relevant diffs. Identify supplied evidence separately from checks performed
+   during preparation.
+2. Distinguish agreed requirements, observed behaviour, proposals, assumptions,
+   and unresolved questions. Explain important decisions and their reasons.
+   Name completed, partial, unverified, and blocked work precisely.
+3. Write in plain language with descriptive headings and connected paragraphs.
+   Use lists for actions and tables for comparisons. Define unfamiliar terms.
+   Keep detailed commands and logs beside their evidence in the technical
+   section; summarise their practical implications in the main narrative.
+4. Save in the user's requested location or the repository's established
+   convention. For feature handoffs without a convention, use
+   `docs/handoffs/<feature-slug>/handoff.md` with companion `assets/`.
+   For brief continuation notes without a file request or convention, the
+   final response is sufficient.
+5. Read the result independently of the chat. Verify factual claims, links,
+   visual labels, completion status, and actionable next steps. Return a link
+   to the saved document and identify consequential gaps.
 
-## Source-Informed Principles
+## Concise Continuation
 
-This skill follows these production agent practices:
+Use these headings, combining empty or overlapping sections:
 
-- Treat the agent like a teammate: give explicit context and a clear definition
-  of done.
-- Preserve verifiable evidence: include commands run, outputs observed, changed
-  files, and validation status.
-- Keep durable instructions small and reusable; put repeatable workflows in
-  skills or repository guidance instead of relying on long prompts.
-- Make uncertainty explicit. If tests failed, could not run, or were skipped,
-  say exactly why.
-- Keep human review in the loop for agent-generated code before integration.
+- **Objective:** requested outcome and scope.
+- **Current state:** branch/worktree, commit, completed and unfinished work.
+- **Changed files:** relevant paths and why they changed.
+- **Validation:** commands or manual checks, results, omissions and impact.
+- **Decisions and rationale:** choices the next person must preserve.
+- **Blockers or risks:** impact and the input or action needed.
+- **Next steps:** immediate action, follow-up, and verification.
+- **Notes for the recipient:** applicable instructions and context traps.
 
-For the rationale and source links, read
-`references/handoff-principles.md` when changing this skill.
-
-## Default Workflow
-
-1. Capture repository state:
-   - `git status --short --branch`
-   - `git branch --show-current`
-   - `git rev-parse --short HEAD`
-   - `git diff --stat`
-   - relevant `git diff` or file reads
-2. Reconstruct the task:
-   - original request
-   - current objective
-   - constraints and decisions made
-   - user preferences or project instructions that still matter
-3. Capture execution evidence:
-   - files changed
-   - commands run
-   - tests, linters, type checks, builds, manual checks
-   - failures and partial results
-4. Identify continuation state:
-   - completed work
-   - remaining work
-   - known blockers
-   - risks and assumptions
-   - safest next command or action
-5. Write the handoff using the template below.
-6. If the handoff will be consumed later, save it in the repository's preferred
-   planning or notes location. If no convention exists, put it in the final
-   response instead of creating a random file.
-
-## Helper Script
-
-Use the helper script to collect mechanical git context:
+The optional helper collects Git evidence:
 
 ```sh
 python3 <skill-dir>/scripts/collect_handoff_context.py --objective "<task summary>"
 ```
 
-Useful options:
+Use `--help` for options. Its output is an unfinished mechanical scaffold;
+curate it into the document or appendix before delivery.
 
-```sh
-# Compare against a base branch or commit
-python3 <skill-dir>/scripts/collect_handoff_context.py --objective "<task>" --base main
+## Receiving a Handoff
 
-# Save a markdown scaffold
-python3 <skill-dir>/scripts/collect_handoff_context.py --objective "<task>" --output handoff.md
-```
+Read it fully, verify current state against its evidence, and inspect or rerun
+the relevant check before editing when practical. Preserve newer user changes
+and record material differences.
 
-The script produces a scaffold. Fill in the human judgment sections before
-handing off.
+## Common Mistakes
 
-## Handoff Format
+- A transcript or raw helper output in place of a readable document.
+- Proposed screens presented as screenshots or approved requirements.
+- A passing check treated as proof of untested behaviour.
+- Visuals or essential context available only in temporary session storage.
 
-Use this structure:
-
-```markdown
-## Objective
-One sentence describing the requested outcome.
-
-## Current State
-- Branch/worktree:
-- Commit:
-- Status:
-- Completed:
-- In progress:
-
-## Changed Files
-- `path`: what changed and why
-
-## Validation
-- `command`: result
-- Not run: reason and residual risk
-
-## Decisions And Rationale
-- Decision: reason
-
-## Blockers Or Risks
-- Risk/blocker: impact and recommended handling
-
-## Next Steps
-1. Immediate next action
-2. Follow-up action
-3. Final verification or handoff target
-
-## Notes For Next Agent
-- Relevant instructions, assumptions, user preferences, or context traps
-```
-
-## Quality Bar
-
-A good handoff is:
-
-- Specific: names files, commands, branches, commits, and concrete next steps.
-- Honest: distinguishes done, partial, unverified, and blocked work.
-- Short: enough to continue, not a transcript.
-- Ordered: next action is obvious.
-- Verifiable: points to evidence, not vague confidence.
-- Safe: warns about destructive commands, secrets, migrations, deploys, and
-  user-visible behavior changes.
-
-## Receiving A Handoff
-
-When continuing from a handoff:
-
-1. Read the handoff fully before editing.
-2. Verify current repository state against the handoff.
-3. Re-run or inspect the most relevant failing or passing check before changing
-   more code when practical.
-4. Preserve user changes that happened after the handoff.
-5. Update the handoff or final response with anything that changed.
-
-## Anti-Patterns
-
-- "Mostly done" without listing what remains.
-- "Tests pass" without command names.
-- "Need to fix errors" without the exact failing command or symptom.
-- Large conversation summaries that omit current git state.
-- Hiding uncertainty to make the work sound cleaner.
-- Creating a handoff file in an unexpected location when a final response would
-  be clearer.
+Read [Handoff principles](references/handoff-principles.md) when maintaining
+this skill or assessing its evidence standards.

@@ -11,7 +11,7 @@ agent runtime is being used.
 
 | Skill | Purpose |
 | --- | --- |
-| `agent-handoff` | Creates concise, evidence-backed handoffs between AI agents, Codex threads, Claude Code sessions, worktrees, or humans so work can resume safely. |
+| `agent-handoff` | Creates human-readable feature handoffs with supporting visuals and technical appendices, plus concise evidence-backed notes for resuming work across agents, sessions, or worktrees. |
 | `adversarial-review` | Independently challenges software changes and agent completion claims with counterexamples, adverse-condition analysis, and evidence-backed findings. |
 | `code-review` | Performs senior-engineer code reviews with severity-ranked findings, concrete file references, validation gaps, and risk-focused review discipline. |
 | `fix-dependabot-alert` | Resolves one GitHub Dependabot security alert with a bounded slow loop, minimal dependency changes, explicit validation evidence, independent checking, and a human merge gate. |

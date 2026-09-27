@@ -1,7 +1,8 @@
 # Agent Handoff Principles
 
 These principles are adapted for local AI-agent engineering workflows using
-Codex, Claude Code, and similar tools.
+Codex, Claude Code, and similar tools. Feature-development handoffs also serve
+engineers, designers, and product leads who have not seen the conversation.
 
 ## Source Notes
 
@@ -24,8 +25,12 @@ Codex, Claude Code, and similar tools.
 
 ## What A Handoff Must Preserve
 
-An agent handoff is not a status update. It is the execution state required to
-resume work safely.
+Every handoff must stand alone for its intended reader. A feature handoff
+explains purpose, scope, user experience, observable acceptance criteria, and
+unresolved decisions before presenting technical evidence in an appendix. A
+continuation handoff preserves the execution state required to resume work
+safely. See [Feature handoffs](feature-handoff.md) for the richer document
+structure and visual guidance.
 
 Preserve:
 
@@ -78,11 +83,15 @@ symptom. Do not paste huge logs unless they are necessary.
 
 Before handing off, confirm:
 
-- The current branch/worktree is named.
-- `git status --short --branch` was checked.
-- Changed files are listed with intent.
+- For repository work, the branch/worktree and commit are recorded, status was
+  checked, and changed files are listed with intent; unavailable evidence is
+  identified explicitly.
 - Validation status is explicit.
 - The next step is ordered and actionable.
 - Blockers identify the owner or required input.
 - No secrets or private data are included in the handoff.
 - The handoff can be read independently of the previous conversation.
+- Feature handoffs explain the experience and acceptance criteria before the
+  technical appendix; figures are labelled, legible, and saved with the document.
+- Proposed designs and supplied evidence remain distinguishable from approved
+  requirements and newly verified observations.
