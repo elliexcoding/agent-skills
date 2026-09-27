@@ -1,0 +1,3 @@
+interface:
+  display_name: "Writing Feature Comments"
+  short_description: "Explain feature purpose and concerns in plain language"

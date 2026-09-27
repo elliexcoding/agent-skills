@@ -23,6 +23,7 @@ agent runtime is being used.
 | `rust-tech-lead` | Provides senior Rust engineering guidance for architecture, debugging, testing, performance work, and review. |
 | `scope-software-task` | Turns ambiguous software changes into repository-grounded task contracts and independently verifiable implementation plans. |
 | `worktree-branch` | Creates meaningful task-based branches for new or detached agent worktrees so temporary work directories remain identifiable. |
+| `writing-feature-comments` | Keeps feature comments concise and useful to human readers, explaining purpose, rationale, and verified concerns. |
 
 ## Repository Layout
 
@@ -68,9 +69,12 @@ agent runtime is being used.
 │   ├── SKILL.md
 │   ├── agents/
 │   └── references/
-└── worktree-branch/
+├── worktree-branch/
+│   ├── SKILL.md
+│   └── scripts/
+└── writing-feature-comments/
     ├── SKILL.md
-    └── scripts/
+    └── agents/
 ```
 
 Each skill should keep `SKILL.md` as the main entry point. Supporting material is
