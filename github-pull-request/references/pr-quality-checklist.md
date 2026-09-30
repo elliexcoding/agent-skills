@@ -4,6 +4,22 @@ Use this checklist as a final review pass before drafting or creating a GitHub
 pull request. Apply it pragmatically: the goal is better review quality and
 lower change risk, not ceremony.
 
+## Blast Radius And Review Effort
+
+- The description names the affected users, systems, and contracts, including
+  relevant downstream consumers outside the diff.
+- Review depth follows actual consequences, reach, recovery, and evidence;
+  neither a small diff nor a package version label establishes low risk.
+- Mixed changes receive the highest applicable review depth. Material unknowns
+  are explicit and prevent routine treatment.
+- Routine maintenance receives a concise description without discretionary
+  reviewer requests or visual artefacts. Existing approval and merge rules hold.
+- New endpoints and other significant implementations include a compact,
+  evidence-backed walkthrough. Risky maintenance gets appropriate scrutiny
+  without a diagram unless the significance gate independently applies.
+- The walkthrough matches the current head, uses accessible links, and clearly
+  distinguishes illustrative examples from verified results.
+
 ## Diff Hygiene
 
 - The diff is limited to the requested work.
