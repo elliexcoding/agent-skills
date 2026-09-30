@@ -10,11 +10,11 @@ description: Use when a production service is unavailable or degraded, a deploym
 Restore service safely without outrunning evidence or authority. Keep facts,
 hypotheses, actions, results, and decisions distinct throughout the incident.
 
-**REQUIRED PROCESS:** Use `superpowers:systematic-debugging` for diagnosis and
-corrective fixes. Authorized operational containment is separate: after the
-minimum perishable evidence is preserved, a reversible mitigation may reduce
-ongoing impact before root cause is known. Record it as risk reduction, not a
-fix or proof of cause, and continue systematic diagnosis.
+**DIAGNOSIS:** Gather evidence, test one hypothesis at a time, isolate the cause,
+and verify corrective fixes. Authorised operational containment is separate:
+after the minimum perishable evidence is preserved, a reversible mitigation may
+reduce ongoing impact before root cause is known. Record it as risk reduction,
+not a fix or proof of cause, and continue systematic diagnosis.
 
 **REQUIRED ROUTING:** For suspected compromise or sensitive-data exposure, use
 the applicable `codex-security` skill for the security investigation while this
