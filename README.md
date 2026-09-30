@@ -22,6 +22,7 @@ agent runtime is being used.
 | `review-pull-request` | Performs read-only, L5-calibrated pull-request reviews with evidence-backed findings and deep Python, Rust, Kubernetes, Terraform, and security lenses. |
 | `rust-tech-lead` | Provides senior Rust engineering guidance for architecture, debugging, testing, performance work, and review. |
 | `scope-software-task` | Turns ambiguous software changes into repository-grounded task contracts and independently verifiable implementation plans. |
+| `show-me` | Provides general visual explanations on request using HumanLayer's unchanged skill, with diagrams, code sketches, and focused HTML artefacts. |
 | `worktree-branch` | Creates meaningful task-based branches for new or detached agent worktrees so temporary work directories remain identifiable. |
 | `writing-feature-comments` | Keeps feature comments concise and useful to human readers, explaining purpose, rationale, and verified concerns. |
 
@@ -69,6 +70,10 @@ agent runtime is being used.
 │   ├── SKILL.md
 │   ├── agents/
 │   └── references/
+├── show-me/
+│   ├── SKILL.md
+│   ├── LICENSE
+│   └── agents/
 ├── worktree-branch/
 │   ├── SKILL.md
 │   └── scripts/
@@ -150,3 +155,9 @@ python3 harness-engineering/scripts/seed_harness.py --target /path/to/repo --dry
 
 This is a personal skills repository rather than a packaged library. Stability
 comes from keeping each skill self-contained, versioned, and easy to inspect.
+
+The `show-me` skill files are copied unchanged from
+[HumanLayer's skills repository at revision ca7c808](https://github.com/humanlayer/skills/tree/ca7c8088db69e315a8b2deea43820270457f8f3c/plugins/show-me/skills/show-me),
+with its MIT licence included. It retains upstream's explicit-invocation policy.
+The `github-pull-request` skill keeps its own context-sensitive presentation
+guidance and significance gate.
