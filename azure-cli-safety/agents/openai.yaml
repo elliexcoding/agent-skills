@@ -1,0 +1,3 @@
+interface:
+  display_name: "Azure CLI Safety"
+  short_description: "Read first; explain Azure commands for manual execution"

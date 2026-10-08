@@ -1,0 +1,3 @@
+interface:
+  display_name: "Google Cloud CLI Safety"
+  short_description: "Read first; explain Google Cloud commands for manual execution"

@@ -14,9 +14,11 @@ agent runtime is being used.
 | `agent-handoff` | Creates human-readable feature handoffs with supporting visuals and technical appendices, plus concise evidence-backed notes for resuming work across agents, sessions, or worktrees. |
 | `adversarial-review` | Independently challenges software changes and agent completion claims with counterexamples, adverse-condition analysis, and evidence-backed findings. |
 | `aws-cli-safety` | Starts AWS CLI work with verified reads, highlights every non-read operation in a written action plan, and presents ready commands with explanations in Markdown for manual execution. |
+| `azure-cli-safety` | Applies read-only-first safeguards to Azure CLI and AzCopy, highlights every non-read operation in a written plan, and explains ready commands in Markdown for manual execution. |
 | `code-review` | Performs senior-engineer code reviews with severity-ranked findings, concrete file references, validation gaps, and risk-focused review discipline. |
 | `fix-dependabot-alert` | Resolves one GitHub Dependabot security alert with a bounded slow loop, minimal dependency changes, explicit validation evidence, independent checking, and a human merge gate. |
 | `github-pull-request` | Drafts or creates GitHub pull requests with evidence-backed blast-radius assessments, proportionate review depth, and visual walkthroughs for significant implementations. |
+| `google-cloud-cli-safety` | Applies read-only-first safeguards to gcloud, bq, and gsutil, highlights every non-read operation in a written plan, and explains ready commands in Markdown for manual execution. |
 | `grill-me` | Interviews the user about a plan, resolving design decisions one by one; available only through manual invocation. |
 | `harness-engineering` | Seeds or improves agent-first project harness files such as `AGENTS.md`, architecture notes, quality gates, execution-plan folders, decision records, and technical-debt tracking. |
 | `refactor-safely` | Guides behavior-preserving refactors with explicit scope, characterization tests, small steps, validation, and reviewable change discipline. |
@@ -43,6 +45,9 @@ agent runtime is being used.
 ├── aws-cli-safety/
 │   ├── SKILL.md
 │   └── agents/
+├── azure-cli-safety/
+│   ├── SKILL.md
+│   └── agents/
 ├── code-review/
 │   ├── SKILL.md
 │   └── references/
@@ -53,6 +58,9 @@ agent runtime is being used.
 ├── github-pull-request/
 │   ├── SKILL.md
 │   └── references/
+├── google-cloud-cli-safety/
+│   ├── SKILL.md
+│   └── agents/
 ├── grill-me/
 │   ├── SKILL.md
 │   └── agents/

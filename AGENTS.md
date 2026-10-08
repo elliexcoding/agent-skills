@@ -16,3 +16,17 @@ scripts, pipelines, local side effects, retries, rollbacks, and clean-up.
 Present ready commands in Markdown code blocks with an explanation of each for
 the user's inspection and manual execution. Do not execute those actions unless
 the user explicitly delegates execution; plan approval alone is not delegation.
+
+## Google Cloud and Azure CLI Safety
+
+Before planning, recommending, or running Google Cloud or Azure CLI commands,
+read and follow the corresponding skill:
+
+- `google-cloud-cli-safety/SKILL.md` for `gcloud`, `bq`, and `gsutil`.
+- `azure-cli-safety/SKILL.md` for `az` and `azcopy`.
+
+Begin with verified reads. Highlight every non-read or uncertain operation in a
+written action plan, and present ready commands with explanations in Markdown
+for manual execution. Keep uncertain actions blocked; agent execution requires
+explicit delegation and specific authorisation. Include local effects, helpers,
+credential changes, retries, rollbacks, and clean-up.
