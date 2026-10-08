@@ -20,6 +20,7 @@ agent runtime is being used.
 | `github-pull-request` | Drafts or creates GitHub pull requests with evidence-backed blast-radius assessments, proportionate review depth, and visual walkthroughs for significant implementations. |
 | `google-cloud-cli-safety` | Applies read-only-first safeguards to gcloud, bq, and gsutil, highlights every non-read operation in a written plan, and explains ready commands in Markdown for manual execution. |
 | `grill-me` | Interviews the user about a plan, resolving design decisions one by one; available only through manual invocation. |
+| `jev-file-scan` | Uses Jev with Codex and Claude Code to rank source snippets by semantic relevance, with local file selection and file/line references. |
 | `harness-engineering` | Seeds or improves agent-first project harness files such as `AGENTS.md`, architecture notes, quality gates, execution-plan folders, decision records, and technical-debt tracking. |
 | `refactor-safely` | Guides behavior-preserving refactors with explicit scope, characterization tests, small steps, validation, and reviewable change discipline. |
 | `refreshing-linear-issues` | Records timestamped implementation updates in Linear issue bodies and posts a confirmation comment after the body change is verified. |
@@ -150,13 +151,47 @@ into a single global instruction file.
 - Avoid committing generated caches, local environment files, logs, secrets, or
   model output transcripts.
 
+## Maintaining Skill Performance
+
+Optimise for useful instructions and reliable selection, not a word-count
+target. Names and descriptions are loaded for discovery; bodies and references
+should be loaded only when needed. Keep descriptions specific enough to separate
+neighbouring workflows. Avoid loading generic review, PR review and language
+review workflows together when one already covers the request.
+
+Keep purpose, essential constraints, completion conditions and reference routing
+in `SKILL.md`. Put substantial conditional procedures beside it and state when
+they must be read. Preserve authorisation boundaries and fragile workflow
+details; remove repeated advice and unconditional document or test sweeps.
+
+This approach follows OpenAI's
+[Astra skills guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra)
+and Anthropic's
+[skill authoring guidance](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices).
+Anthropic's 500-line recommendation is an upper guideline, not a target or proof
+that shorter always performs better. Its
+[Opus 5.5 guidance](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5)
+also recommends testing effort settings on actual tasks; prompt trimming alone
+does not establish a latency or quality improvement.
+
+For substantial changes, check explicit invocation, implicit selection, a nearby
+request that should not trigger the skill, and a boundary or failure case. Check
+the resulting decisions and artefacts, not just wording or file size. Compare
+success, unnecessary reads/tool calls, latency and token use on the same tasks
+and model settings before claiming performance gains. See OpenAI's
+[skill evaluation guide](https://developers.openai.com/blog/eval-skills).
+
+Keep existing explicit-only invocation policies intact. Treat upstream copies
+and external symlinks as separate maintenance boundaries; local edits can be
+lost on an upstream update.
+
 ## Validation
 
 Before committing changes:
 
 ```sh
 git status --short
-find . -maxdepth 2 -name SKILL.md -print
+rg --files -g 'SKILL.md'
 ```
 
 For skills that include scripts, also run the script's dry-run or help command

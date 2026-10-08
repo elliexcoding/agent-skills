@@ -1,6 +1,6 @@
 ---
 name: review-pull-request
-description: Use when reviewing a pull request, proposed merge, patchset, or stacked change, especially when correctness, security, CI evidence, compatibility, or production risk must be assessed.
+description: Assess merge-readiness of a pull request, proposed merge or stacked change using read-only review and existing CI evidence.
 ---
 
 # Review Pull Request
@@ -18,7 +18,7 @@ description: Use when reviewing a pull request, proposed merge, patchset, or sta
 2. Read the PR description, linked context, existing CI evidence, and dependency changes.
 3. Classify risk and inspect the architectural main path before line-level details.
 4. Review every changed line in scope plus enough callers, configuration, tests, and documentation to prove behavior.
-5. Load the relevant direct references and apply their lenses.
+5. Load specialist guidance only for the behaviours and risks present in the diff.
 6. Disconfirm candidate findings by searching for guards, invariants, tests, and caller guarantees.
 7. Report findings, verdict, evidence, coverage, and residual risk.
 
@@ -26,7 +26,7 @@ description: Use when reviewing a pull request, proposed merge, patchset, or sta
 
 - When the user supplies a Linear issue URL, or the PR links one, retrieve the review-relevant issue context through the runtime's native Linear MCP tools in Codex or Claude. Discover or load those MCP tools when needed.
 - Do not use browser, web, screenshot, or computer-use tools to access Linear, even when an authenticated browser session is available or MCP discovery takes longer.
-- If Linear MCP is unavailable or unauthorised, report the missing context as an evidence limitation and continue with available evidence. Use `INCONCLUSIVE` only when that context is essential to a responsible merge-readiness judgment.
+- If Linear MCP is unavailable or fails, stop the Linear lookup, report the MCP problem and request explicit approval before any browser fallback. Continue unrelated review only when applicable instructions permit it; use `INCONCLUSIVE` when essential context is missing.
 - Keep Linear access read-only and fetch only material context, such as the issue description, acceptance criteria, relevant comments, and linked or parent issues.
 
 ## CI And Local Evidence
@@ -44,13 +44,17 @@ A finding needs a violated expectation, reachable trigger, precise path, materia
 
 ## Reference Routing
 
-- Always read `references/review-playbook.md` for nontrivial reviews.
-- Read `references/python.md` completely when `.py`, Python packaging, Python service, or Python runtime behavior changes.
-- Read `references/rust.md` completely when `.rs`, `Cargo.toml`, `Cargo.lock`, features, unsafe/FFI, or Rust concurrency changes.
-- Read `references/kubernetes.md` completely when Kubernetes YAML, Helm-rendered resources, Kustomize output, controllers, or cluster policy changes.
-- Read `references/terraform.md` completely when `.tf`, `.tf.json`, `.terraform.lock.hcl`, modules, state migrations, or Terraform plan output changes.
-- Read `references/security.md` completely when trust boundaries, identity, permissions, untrusted input, secrets, cryptography, dependencies, CI, or supply-chain behavior changes.
-- Read `references/source-notes.md` when maintaining this skill or explaining the professional basis for a review control.
+Select references by changed behaviour, not file extension alone. Read the
+relevant sections and expand when a finding depends on neighbouring guidance.
+These lenses replace loading separate general or language review skills.
+
+- [Review playbook](references/review-playbook.md): risk, severity and finding calibration for nontrivial reviews.
+- [Python](references/python.md): Python runtime, typing, packaging or async changes.
+- [Rust](references/rust.md): ownership, features, unsafe/FFI or concurrency changes.
+- [Kubernetes](references/kubernetes.md): workload, controller, Helm/Kustomize or cluster-policy changes.
+- [Terraform](references/terraform.md): provisioning, provider, module, state or plan changes.
+- [Security](references/security.md): trust boundaries, identity, permissions, untrusted input, secrets or supply-chain risk.
+- [Source notes](references/source-notes.md): maintaining this skill or explaining a review control.
 
 ## Output
 

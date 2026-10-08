@@ -1,146 +1,52 @@
 ---
 name: refactor-safely
-description: |
-  Guide behavior-preserving refactors with senior-engineer discipline. Use when
-  restructuring code, reducing duplication, improving names, extracting
-  abstractions, moving files, simplifying control flow, or preparing a larger
-  change while preserving existing behavior.
+description: Restructure code while preserving behaviour. Use for requested renames, extraction, deduplication or changes to module boundaries.
 ---
 
 # Refactor Safely
 
-## Role
+Improve the requested structure while preserving observable behaviour. If the
+request also changes behaviour, identify and verify that change separately.
 
-Refactor code without changing behavior unless an intentional behavior change is
-explicitly requested and documented. Prefer small, verifiable steps over broad
-rewrites.
+## Establish the boundary
 
-The purpose of this skill is to improve structure, clarity, boundaries, or
-maintainability while protecting users, tests, public contracts, and operational
-behavior.
+Identify the affected consumers and contracts: public APIs, schemas, CLI flags,
+configuration, serialised formats, ordering, errors and side effects where
+relevant. Read enough callers and tests to understand the behaviour that must
+survive. Keep unrelated clean-up outside the change.
 
-## When To Use
+Choose the approach that fits the work:
 
-Use this skill when asked to:
+- **Mechanical:** Prefer tool-assisted renames, moves and import updates; keep
+  semantic changes separate.
+- **Structural:** Characterise risky behaviour before changing responsibilities
+  or dependency boundaries. Abstract shared knowledge, not coincidental syntax.
+- **Preparatory:** Name the future change and keep the preparation useful on its
+  own; avoid unused extension points or speculative configuration.
 
-- Clean up, simplify, reorganize, or restructure code.
-- Extract functions, classes, modules, components, packages, or services.
-- Rename symbols, files, routes, configuration, or public APIs.
-- Remove duplication or consolidate similar logic.
-- Split a large function or module.
-- Prepare code for a feature without changing behavior yet.
-- Reduce coupling, clarify ownership, or improve testability.
+For a larger refactor, use the relevant sections of
+[the refactor checklist](references/refactor-checklist.md) to check compatibility
+and stopping conditions.
 
-If the request includes both a refactor and behavior changes, separate the two
-in the plan and verification.
+## Change and verify
 
-## Default Workflow
+Make small, reviewable changes. Use existing tests where they cover the affected
+contracts; add characterisation tests only for a concrete uncovered risk. Tests
+should distinguish preserved behaviour from a regression, not mirror the new
+implementation.
 
-1. Define the refactor boundary:
-   - what may change
-   - what behavior must remain the same
-   - public APIs, schemas, CLI flags, configuration, files, and data formats
-     that must stay compatible
-2. Inspect existing behavior:
-   - read nearby code, call sites, tests, docs, and usage examples
-   - identify edge cases and implicit contracts
-   - run the narrowest relevant existing test when practical
-3. Add characterization coverage when needed:
-   - prefer focused tests that lock current behavior
-   - cover risky edge cases before changing structure
-   - avoid overfitting to implementation details
-4. Make small mechanical changes:
-   - rename, move, extract, inline, or simplify one concept at a time
-   - keep formatting-only churn separate when practical
-   - avoid opportunistic rewrites outside the refactor boundary
-5. Validate after each meaningful step:
-   - run targeted tests first
-   - broaden to project checks before finishing
-   - inspect the diff for unintended behavior changes
-6. Document intentional changes and residual risks.
+Run affected checks after meaningful changes and the checks required by the
+repository. Broaden validation when changed dependencies, failures or unresolved
+risks justify it. Inspect the final diff for accidental behaviour changes,
+unrelated formatting and lost user edits.
 
-For larger refactors, read `references/refactor-checklist.md` before editing.
+Do not remove or weaken tests to accommodate a refactor, hide breaking changes
+under its name, or reset unrelated work. If progress requires a behaviour change
+outside the request, preserve the current work and explain the decision needed.
 
-## Refactor Types
+## Report
 
-### Mechanical
-
-Examples: renames, moves, import updates, formatting, extraction without logic
-changes.
-
-Quality bar:
-
-- Tool-assisted where possible.
-- Easy to review.
-- No semantic changes mixed in.
-
-### Structural
-
-Examples: module boundaries, dependency direction, class or function extraction,
-shared utilities, interface cleanup.
-
-Quality bar:
-
-- Behavior characterized before the change.
-- New boundaries have a clear responsibility.
-- Abstractions are justified by real complexity or variation.
-
-### Preparatory
-
-Examples: making code testable, isolating side effects, introducing a seam for a
-future feature, moving logic behind a stable boundary.
-
-Quality bar:
-
-- The future change is named.
-- The preparation is useful even if the future feature changes shape.
-- No speculative configuration or unused extension points.
-
-## Safety Rules
-
-- Do not change behavior accidentally.
-- Do not combine unrelated cleanup with the requested refactor.
-- Do not remove tests unless they are obsolete and replaced by equal or better
-  coverage.
-- Do not hide breaking API, schema, migration, or configuration changes under
-  "refactor".
-- Do not add abstractions only because code looks similar.
-- Do not use broad formatting changes to obscure logic changes.
-- Preserve user edits and untracked work.
-
-## Validation
-
-Prefer repository-documented commands. Otherwise use this pattern:
-
-```sh
-# Narrow check for touched behavior
-<targeted test command>
-
-# Broader confidence before finishing
-<project test/build/lint/typecheck command>
-```
-
-If validation cannot run, state:
-
-- command not run
-- reason
-- residual risk
-- best next verification step
-
-## Output Expectations
-
-When planning a refactor, provide:
-
-- refactor boundary
-- behavior that must be preserved
-- test or characterization strategy
-- step order
-- risks
-
-When completing a refactor, report:
-
-- what changed structurally
-- what behavior was intentionally preserved
-- validation run
-- any intentional behavior changes
-- any remaining risks or follow-up cleanup
+State the structural change, preserved contracts and validation evidence. Name
+any intentional behaviour change separately. For omitted checks, state the
+reason, resulting uncertainty and next useful verification step. A simple
+refactor needs only a short explanation; a plan is not a mandatory deliverable.

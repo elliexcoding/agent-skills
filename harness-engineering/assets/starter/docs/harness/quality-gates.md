@@ -2,7 +2,9 @@
 
 Last reviewed: {{DATE}}
 
-Replace TODO commands with the real commands for {{PROJECT_NAME}}.
+Replace TODO commands with the real commands for {{PROJECT_NAME}} and remove
+categories that do not apply. State which checks are always required and which
+are conditional on changed behaviour, packages or deployment paths.
 
 ## Required Checks
 

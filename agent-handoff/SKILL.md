@@ -1,9 +1,6 @@
 ---
 name: agent-handoff
-description: |
-  Use when handing feature development to engineers, designers, or product
-  leads, including requirements and UX handoffs with screenshots or wireframes,
-  or when work must resume across agents, sessions, worktrees, or humans.
+description: Prepare feature handoffs or continuation notes when transferring work between people, agents, sessions or worktrees.
 ---
 
 # Agent Handoff

@@ -50,7 +50,7 @@ AI-assisted refactoring reviewable, reversible, and grounded in evidence.
 ## Validation
 
 - Targeted tests for touched behavior pass.
-- Broader project checks pass when practical.
+- Repository-required checks pass; further checks address a concrete remaining risk.
 - Static analysis, type checks, formatters, and linters are run when relevant.
 - Manual validation is documented when automated checks are insufficient.
 - Failed or skipped checks are reported with exact commands and residual risk.

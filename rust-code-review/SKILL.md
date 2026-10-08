@@ -1,9 +1,6 @@
 ---
 name: rust-code-review
-description:
-  Review Rust changes for correctness, maintainability, tests, and idiomatic
-  project fit. Use when asked to review Rust code, Rust diffs, crates, PRs, or
-  unsafe/concurrency-sensitive Rust changes.
+description: Review Rust code for ownership, unsafe, concurrency and API risks. Use for Rust-focused reviews outside a PR review workflow.
 ---
 
 # Rust Code Review
@@ -14,12 +11,10 @@ Find concrete risks in Rust changes before style advice. Prefer small,
 actionable findings tied to behaviour, safety, API contracts, maintainability,
 or missing verification.
 
-## Companion Skills
-
-- Use `debug-failing-tests` when tests fail, reproduction is unclear, or the
-  review depends on proving a suspected runtime failure.
-- Use this skill before broader refactoring advice; review should establish
-  whether the current change is correct.
+Remain read-only unless fixes are requested. If `review-pull-request` is already
+active, use its Rust reference instead of loading this second workflow.
+Use `debug-failing-tests` only when a failure needs a separate diagnosis;
+reproducing a defect during review does not authorise fixing it.
 
 ## Review Priorities
 
@@ -37,16 +32,10 @@ or missing verification.
 1. Inspect the diff first, then read the surrounding code needed to understand
    intent.
 2. Identify externally visible behaviour, invariants, and failure modes.
-3. Run targeted checks when practical:
-
-   ```bash
-   cargo fmt --check
-   cargo clippy --all-targets --all-features -- -D warnings
-   cargo test --all-targets --all-features
-   ```
-
-4. If the workspace uses different commands, follow the repo's documented
-   commands instead.
+3. Inspect existing validation evidence. Run a targeted check when it resolves
+   a concrete concern, selecting the affected package, test, feature and target.
+4. Follow repository-required checks. Do not assume all features can be enabled
+   together, all targets are available, or Clippy warnings must become errors.
 5. Avoid broad rewrites unless the current design creates a concrete risk.
 6. Treat missing tests as findings only when a realistic bug could escape.
 
