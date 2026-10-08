@@ -1,9 +1,6 @@
 ---
 name: python-code-review
-description:
-  Review Python changes for correctness, typing, packaging, tests, async
-  behaviour, and maintainability. Use when asked to review Python code, Python
-  diffs, packages, PRs, scripts, or service changes.
+description: Review Python code for language-specific correctness, typing, packaging and async risks. Use for Python-focused reviews outside a PR review workflow.
 ---
 
 # Python Code Review
@@ -14,12 +11,10 @@ Find concrete Python risks before style advice. Prefer actionable findings tied
 to behaviour, data handling, typing, packaging, operational safety, or missing
 verification.
 
-## Companion Skills
-
-- Use `debug-failing-tests` when tests fail, a traceback needs reproduction, or
-  the review depends on proving a suspected runtime failure.
-- Use this skill before broad cleanup advice; review should establish whether
-  the current change is correct and maintainable.
+Remain read-only unless fixes are requested. If `review-pull-request` is already
+active, use its Python reference instead of loading this second workflow.
+Use `debug-failing-tests` only when a failure needs a separate diagnosis;
+reproducing a defect during review does not authorise fixing it.
 
 ## Review Priorities
 
@@ -41,16 +36,11 @@ verification.
 1. Inspect the diff first, then read the surrounding code needed to understand
    intent.
 2. Identify public contracts, data models, and likely production failure modes.
-3. Run targeted checks when practical:
-
-   ```bash
-   python -m pytest
-   python -m ruff check .
-   python -m mypy .
-   ```
-
-4. If the project uses `uv`, `tox`, `nox`, `poetry`, `hatch`, or `make`, follow
-   the repo's documented commands instead.
+3. Inspect existing validation evidence. Run a targeted check when it resolves
+   a concrete concern, selecting the relevant test path, typing boundary or
+   packaging check rather than running every tool.
+4. Use the repository's environment and documented commands; do not install or
+   introduce a linter, type checker or runner just for the review.
 5. Avoid formatting-only findings unless they hide a real maintenance problem.
 6. Treat missing tests as findings only when a realistic bug could escape.
 

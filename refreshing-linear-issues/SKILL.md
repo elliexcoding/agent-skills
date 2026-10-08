@@ -1,6 +1,6 @@
 ---
 name: refreshing-linear-issues
-description: Use when refreshing or updating a Linear issue after a code change, implementation, fix, or follow-up needs to be recorded for engineers. Do not use for ordinary triage or status-only changes.
+description: Record implementation progress and validation in a Linear issue after code changes. Excludes ordinary triage and status-only updates.
 ---
 
 # Refreshing Linear Issues
@@ -10,6 +10,10 @@ description: Use when refreshing or updating a Linear issue after a code change,
 Make the issue body the durable implementation record and use a separate comment
 to announce that the refresh succeeded. Preserve the original issue content and
 calibrate every completion claim to evidence.
+
+Use the installed Linear MCP tools for issue reads and writes. If MCP is
+unavailable or fails, stop and report the problem; ask for explicit approval
+before using any browser fallback. Do not silently switch to the Linear UI.
 
 ## Refresh Contract
 

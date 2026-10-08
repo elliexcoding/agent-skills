@@ -1,6 +1,6 @@
 ---
 name: writing-feature-comments
-description: Use when building or changing software features, or writing or revising their code comments and docstrings, especially when comments contain implementation narration, drafting notes, or unclear purpose.
+description: Write or revise code comments and docstrings that explain purpose, constraints or verified pitfalls. Use when comments are part of the requested change.
 ---
 
 # Writing Feature Comments

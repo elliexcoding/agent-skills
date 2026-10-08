@@ -1,6 +1,6 @@
 ---
 name: incident-response
-description: Use when a production service is unavailable or degraded, a deployment causes active customer impact, data integrity may be compromised, or an operational incident needs coordinated triage, mitigation, and recovery. Do not use for hypothetical pre-release risk reviews or routine debugging without active production impact.
+description: Triage and coordinate recovery from active production outages, degradation or data-integrity incidents. Excludes routine debugging and pre-release reviews.
 ---
 
 # Incident Response
@@ -16,9 +16,10 @@ after the minimum perishable evidence is preserved, a reversible mitigation may
 reduce ongoing impact before root cause is known. Record it as risk reduction,
 not a fix or proof of cause, and continue systematic diagnosis.
 
-**REQUIRED ROUTING:** For suspected compromise or sensitive-data exposure, use
-the applicable `codex-security` skill for the security investigation while this
-skill coordinates operational response.
+For suspected compromise or sensitive-data exposure, use an available security
+incident workflow or escalate to the designated security responder. Repository
+vulnerability scans do not substitute for a live security investigation. Keep
+authorised operational containment moving while that investigation proceeds.
 
 ## Authority Boundary
 

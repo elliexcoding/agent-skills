@@ -1,12 +1,6 @@
 ---
 name: harness-engineering
-description: |
-  Seed or improve new software projects with OpenAI-style harness engineering:
-  concise AGENTS.md guidance, repository-local knowledge maps, architecture and
-  quality docs, execution-plan folders, feedback-loop guardrails, and
-  agent-legible project scaffolding. Use when starting a new repo, adding
-  agent-first project structure, encoding Codex working norms, or turning
-  repeated project setup prompts into reusable files and checks.
+description: Create or improve repository guidance, knowledge maps and quality checks when asked to set up an agent development harness.
 ---
 
 # Harness Engineering
@@ -19,8 +13,8 @@ places to capture plans, decisions, and technical debt.
 
 ## Context Discipline
 
-- Prefer the seeding script first. It copies templates without loading every
-  template into model context.
+- Use the seeding script for a requested scaffold. For a narrow guidance edit,
+  change the relevant existing file without seeding unrelated documents.
 - Read `references/harness-principles.md` only when adapting the principles or
   explaining the rationale.
 - Read `references/seeding-guide.md` only when changing the seeded file set,
@@ -34,7 +28,8 @@ places to capture plans, decisions, and technical debt.
    - `pwd`
    - `rg --files -g 'AGENTS.md' -g 'ARCHITECTURE.md' -g 'docs/**'`
    - project package/config files relevant to the stack
-2. Decide whether this is a fresh seed or an existing-repo upgrade.
+2. Decide whether this is a fresh seed, an existing-repo upgrade or a targeted
+   guidance edit. Keep the artefact set proportionate to the request.
 3. Seed missing files with:
 
    ```sh

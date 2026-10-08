@@ -1,12 +1,6 @@
 ---
 name: adversarial-review
-description: |
-  Independently challenge software changes, plans, designs, tests, or agent
-  completion claims by trying to falsify their assumptions with concrete
-  counterexamples and evidence. Use for adversarial review, red-team review,
-  skeptical second passes, pre-merge challenge reviews, high-risk changes, or
-  verification of AI-agent work where hidden failure modes, missing evidence,
-  security boundaries, operational risk, and false confidence must be exposed.
+description: Challenge software changes, designs or completion claims with counterexamples. Use for an explicit adversarial review or independent second pass.
 ---
 
 # Adversarial Review

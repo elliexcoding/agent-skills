@@ -3,14 +3,16 @@
 This file is the entry point for Codex. Keep it short and point to deeper,
 versioned project knowledge instead of duplicating it here.
 
-## Start Here
+## Read When Relevant
 
-- Architecture map: `ARCHITECTURE.md`
-- Harness principles: `docs/harness/principles.md`
-- Quality gates: `docs/harness/quality-gates.md`
-- Execution plans: `docs/exec-plans/`
-- Decisions: `docs/decisions/`
-- Technical debt: `docs/tech-debt.md`
+- Service boundaries or cross-component changes: `ARCHITECTURE.md`.
+- Project-specific engineering constraints: `docs/harness/principles.md`.
+- Applicable validation commands: `docs/harness/quality-gates.md`.
+- Complex work needing a durable plan: `docs/exec-plans/`.
+- Rationale for an affected design decision: `docs/decisions/`.
+- Known debt affecting the requested work: `docs/tech-debt.md`.
+
+Read what the task needs; this is a map, not a mandatory reading sequence.
 
 ## Working Rules
 
@@ -25,12 +27,15 @@ versioned project knowledge instead of duplicating it here.
 
 ## Validation
 
-Before finishing, run the project-specific checks in
-`docs/harness/quality-gates.md`. If a check cannot run, state why and identify
-the residual risk.
+Run the applicable required checks in `docs/harness/quality-gates.md`. Broaden
+validation when changed dependencies, failures or unresolved risks justify it;
+do not repeat successful checks on unchanged code without a new reason. If a
+check cannot run, state why and identify the residual risk.
 
 ## Human Escalation
 
-Ask for human judgment when a task changes user-visible product direction,
-security posture, data retention, irreversible migrations, external contracts,
-or another decision not inferable from repository context.
+Ask for human judgement when an unresolved decision affects product direction,
+security, data retention, irreversible migrations or external contracts and is
+not settled by the user's request or repository evidence. Use existing scoped
+authorisation; do not ask again for an already agreed action. Continue work
+that does not depend on the missing decision.

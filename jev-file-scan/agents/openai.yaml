@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jev file scan"
+  short_description: "Find relevant source files and snippets with Jev"
+  default_prompt: "Use $jev-file-scan to find the code relevant to my question."

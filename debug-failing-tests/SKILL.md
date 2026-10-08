@@ -1,9 +1,6 @@
 ---
 name: debug-failing-tests
-description:
-  Reproduce and diagnose failing Rust or Python tests with minimal, evidence-led
-  fixes. Use when tests fail, CI output is noisy, a traceback needs triage, or a
-  suspected bug needs a focused reproduction.
+description: Diagnose and fix failing Rust or Python tests, tracebacks and CI failures using a focused reproduction.
 ---
 
 # Debug Failing Tests
@@ -14,13 +11,9 @@ Turn a failing test, traceback, CI log, or suspected regression into a small
 reproduction, a likely cause, and a verified fix path. Optimise for evidence
 over speculation.
 
-## Companion Skills
-
-- Use with `rust-code-review` when a Rust review uncovers a suspected behaviour
-  bug, flaky test, panic, borrow/lifetime side effect, async issue, or
-  concurrency failure.
-- Use with `python-code-review` when a Python review uncovers a traceback,
-  fixture issue, async failure, dependency mismatch, or data-shape bug.
+For diagnosis-only or review requests, report the cause and fix path without
+editing. When a fix is requested, continue through implementation and relevant
+verification. A separate code-review workflow is not required for every failure.
 
 ## Workflow
 
@@ -39,7 +32,8 @@ over speculation.
 5. Form one hypothesis at a time and test it with code inspection, a narrower
    test, or a temporary diagnostic.
 6. Make the smallest durable fix that addresses the cause, not just the symptom.
-7. Re-run the narrow failing command, then the relevant broader suite.
+7. Re-run the narrow failing command, then required repository checks. Broaden
+   further when the failure or changed dependencies leave a concrete concern.
 
 ## Useful Commands
 
@@ -48,7 +42,6 @@ Rust:
 ```bash
 cargo test <test_name>
 cargo test -p <package> <test_name> -- --nocapture
-cargo test --all-targets --all-features
 ```
 
 Python:
@@ -56,7 +49,6 @@ Python:
 ```bash
 python -m pytest path/to/test.py::test_name -q
 python -m pytest -k "<expression>" -vv
-python -m pytest
 ```
 
 ## Guardrails
