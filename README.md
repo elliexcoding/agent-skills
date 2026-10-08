@@ -13,6 +13,7 @@ agent runtime is being used.
 | --- | --- |
 | `agent-handoff` | Creates human-readable feature handoffs with supporting visuals and technical appendices, plus concise evidence-backed notes for resuming work across agents, sessions, or worktrees. |
 | `adversarial-review` | Independently challenges software changes and agent completion claims with counterexamples, adverse-condition analysis, and evidence-backed findings. |
+| `aws-cli-safety` | Starts AWS CLI work with verified reads, highlights every non-read operation in a written action plan, and presents ready commands with explanations in Markdown for manual execution. |
 | `code-review` | Performs senior-engineer code reviews with severity-ranked findings, concrete file references, validation gaps, and risk-focused review discipline. |
 | `fix-dependabot-alert` | Resolves one GitHub Dependabot security alert with a bounded slow loop, minimal dependency changes, explicit validation evidence, independent checking, and a human merge gate. |
 | `github-pull-request` | Drafts or creates GitHub pull requests with evidence-backed blast-radius assessments, proportionate review depth, and visual walkthroughs for significant implementations. |
@@ -39,6 +40,9 @@ agent runtime is being used.
 │   ├── SKILL.md
 │   ├── agents/
 │   └── references/
+├── aws-cli-safety/
+│   ├── SKILL.md
+│   └── agents/
 ├── code-review/
 │   ├── SKILL.md
 │   └── references/

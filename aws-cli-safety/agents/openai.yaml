@@ -1,0 +1,3 @@
+interface:
+  display_name: "AWS CLI Safety"
+  short_description: "Read first; explain AWS commands for manual execution"
