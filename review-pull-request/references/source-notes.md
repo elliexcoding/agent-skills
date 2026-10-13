@@ -8,6 +8,7 @@ requirement unless the PR declares the relevant version.
 ## Contents
 
 - [General review](#general-review)
+- [Chat naming](#chat-naming)
 - [Security](#security)
 - [Python](#python)
 - [Rust](#rust)
@@ -39,6 +40,10 @@ requirement unless the PR declares the relevant version.
 ### `GH-STATUS`
 
 [GitHub Docs: Status checks](https://docs.github.com/en/pull-requests/reference/status-checks) supports treating reported check state as evidence to inspect, not a substitute for review.
+
+## Chat naming
+
+[Claude Code commands](https://code.claude.com/docs/en/commands) documents `/rename <name>` and its availability in non-interactive mode from v2.1.205. [Claude Code CLI reference](https://code.claude.com/docs/en/cli-reference) documents resuming a session by ID and `--bare`, which skips hooks and other customisations. [Claude Code skill substitutions](https://code.claude.com/docs/en/skills#available-string-substitutions) documents `${CLAUDE_SESSION_ID}` as the current session ID. The explicit-name command was checked on v2.1.217 against an isolated local session and a resumed session, with stdin closed and no API credentials.
 
 ## Security
 

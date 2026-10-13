@@ -8,19 +8,37 @@ description: Assess merge-readiness of a pull request, proposed merge or stacked
 ## Contract
 
 - Act as an L5-equivalent reviewer accountable for code health and production risk.
-- Remain read-only; recommend a verdict but never publish it or change reviewed artifacts.
+- Keep reviewed artefacts and external review state read-only; renaming the current chat as described below is permitted. Recommend a verdict but never publish it.
 - Review from the current checkout and its already checked-out branch. Do not create, enter, or hand off to another worktree, clone, branch, or checkout, and do not switch branches for the review.
 - Lead with material findings, not a change summary or praise.
 
 ## Workflow
 
-1. Establish objective, acceptance criteria, base/head, repository instructions, and changed-file inventory.
-2. Read the PR description, linked context, existing CI evidence, and dependency changes.
-3. Classify risk and inspect the architectural main path before line-level details.
-4. Review every changed line in scope plus enough callers, configuration, tests, and documentation to prove behavior.
-5. Load specialist guidance only for the behaviours and risks present in the diff.
-6. Disconfirm candidate findings by searching for guards, invariants, tests, and caller guarantees.
-7. Report findings, verdict, evidence, coverage, and residual risk.
+1. Resolve the PR identity and rename the current chat using the convention below before inspecting the diff.
+2. Establish objective, acceptance criteria, base/head, repository instructions, and changed-file inventory.
+3. Read the PR description, linked context, existing CI evidence, and dependency changes.
+4. Classify risk and inspect the architectural main path before line-level details.
+5. Review every changed line in scope plus enough callers, configuration, tests, and documentation to prove behavior.
+6. Load specialist guidance only for the behaviours and risks present in the diff.
+7. Disconfirm candidate findings by searching for guards, invariants, tests, and caller guarantees.
+8. Report findings, verdict, evidence, coverage, and residual risk.
+
+## Review Chat Name
+
+Whenever the user asks to review a PR in Codex or Claude Code, rename the current chat to `Reviewing <Linear issue identifier>`, for example `Reviewing ENG-123`. If the PR has no associated Linear issue, use `Reviewing #<PR number>`, for example `Reviewing #456`. Unless the user explicitly requests another title, apply this convention even when the chat already has a title.
+
+- Prefer the Linear issue explicitly supplied for this review. Otherwise identify the primary issue from the PR title, description, linked issue URL, or head branch. Match a complete identifier of the form `[A-Z][A-Z0-9]*-\d+`; do not use an incidental mention of an unrelated issue. Follow the Linear MCP rules below for any issue lookup; a failed lookup does not mean no issue exists.
+- Read only the PR metadata needed to resolve the title before reviewing code. Do not invent an issue identifier or PR number. If neither is available, resolve the PR target first.
+- **Codex:** use the native current-chat title tool, such as `mcp__codex_app__set_thread_title`, with the chosen `title`. Omit `threadId` when the tool defaults to the calling chat.
+- **Claude Code:** use the built-in `/rename` command in print mode (requires v2.1.205 or later), targeting the current session ID supplied by the `${CLAUDE_SESSION_ID}` skill substitution. For example, replace the example title below with the chosen title:
+
+  ```sh
+  claude --bare --resume '${CLAUDE_SESSION_ID}' --print '/rename Reviewing ENG-123' < /dev/null
+  ```
+
+  `--bare` avoids loading hooks and other customisations; redirecting stdin prevents extra input from being appended to the name. Use only the actual current session ID, never `--continue` or a guessed session. Do not run this command in Codex.
+- Check the rename result before claiming success. If the runtime lacks a supported rename capability, the session ID is unresolved, or renaming fails, report that briefly and continue the authorised review; offer the exact `/rename <chosen title>` command for the user to run where supported. Do not edit session databases or transcripts as a fallback.
+- Rename once the review target is known, then retain that title throughout the review. Reapply the convention when the user starts reviewing a different PR in the same chat.
 
 ## Linked Linear Context
 
