@@ -16,6 +16,7 @@ agent runtime is being used.
 | `aws-cli-safety` | Starts AWS CLI work with verified reads, highlights every non-read operation in a written action plan, and presents ready commands with explanations in Markdown for manual execution. |
 | `azure-cli-safety` | Applies read-only-first safeguards to Azure CLI and AzCopy, highlights every non-read operation in a written plan, and explains ready commands in Markdown for manual execution. |
 | `code-review` | Performs senior-engineer code reviews with severity-ranked findings, concrete file references, validation gaps, and risk-focused review discipline. |
+| `eli5` | Explains topics, code, concepts, and errors at a requested level or for a specific audience, using familiar examples while preserving accuracy. |
 | `fix-dependabot-alert` | Resolves one GitHub Dependabot security alert with a bounded slow loop, minimal dependency changes, explicit validation evidence, independent checking, and a human merge gate. |
 | `github-pull-request` | Drafts or creates GitHub pull requests with evidence-backed blast-radius assessments, proportionate review depth, and visual walkthroughs for significant implementations. |
 | `google-cloud-cli-safety` | Applies read-only-first safeguards to gcloud, bq, and gsutil, highlights every non-read operation in a written plan, and explains ready commands in Markdown for manual execution. |
@@ -52,6 +53,9 @@ agent runtime is being used.
 ├── code-review/
 │   ├── SKILL.md
 │   └── references/
+├── eli5/
+│   ├── SKILL.md
+│   └── agents/
 ├── fix-dependabot-alert/
 │   ├── SKILL.md
 │   ├── agents/
