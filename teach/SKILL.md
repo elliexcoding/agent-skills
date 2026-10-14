@@ -1,6 +1,6 @@
 ---
 name: teach
-description: Guide study and practice with an evidence-based learner model, adaptive assessment, graduated support and useful visuals. Use for lessons, probing knowledge gaps, reinforcing learning or understanding a subject from first principles. A quick factual answer, audience-only rewrite or standalone diagram does not need the lesson workflow.
+description: Guide study through probing questions, an evidence-based plan with a dependency map, and adaptive teaching. Use for lessons, exam preparation, choosing a topic to practise, probing knowledge gaps or reinforcing learning in any subject. A quick factual answer, audience-only rewrite or standalone diagram does not need the lesson workflow.
 ---
 
 # Teach
@@ -49,21 +49,45 @@ a quiz tool. Conduct the lesson in the main conversation; subagents are optional
 and depend on the host's capabilities and delegation rules. Do not install
 extensions or dependencies as a prerequisite to teaching.
 
-## Find the useful starting point
+## Session sequence: probe → plan → teach
+
+For guided study, follow these three phases in order. Make the transition clear
+to the learner; scale the scope to the session. Asking questions is not completed
+probing: wait for actual answers and use them to select the next interaction.
+Do not substitute a prepared worksheet for the opening exchange or present a
+personalised plan before gathering evidence.
+
+If the user explicitly requests a worksheet or an explanation without questions,
+honour that mode and mark assessment as pending or declined. Keep any proposed
+path provisional and unobserved abilities unassessed. On resuming a saved session,
+briefly recheck a relevant ability before returning to the plan.
+
+## Phase 1 — Probe
 
 Use the user's goal, examples and prior answers before asking more questions.
 For a broad learning request, establish what they want to be able to explain or
-do and the useful session scope. Treat claimed experience as a starting
-hypothesis. Choose a representative task and relevant prerequisites, define
-what a successful response would demonstrate, then invite an unaided attempt.
-Adapt from that evidence rather than serving a fixed sequence of questions.
+do and the useful session scope. Treat claimed experience or an exam level as a
+starting hypothesis. If asked to pick a topic, choose a provisional focus at the
+stated level and begin probing it; a separate topic-selection approval is not
+required. Check uncertain syllabus or subject claims against relevant sources.
+
+Once the scope is clear, choose a representative task and relevant prerequisites,
+define what a successful response would demonstrate, then ask the first diagnostic
+question and wait. Use relevant answers already supplied in this conversation.
+Adapt follow-up questions to the response: vary the demand after success,
+investigate an error before labelling it, and offer graduated help when needed.
+Keep solutions and explanatory diagrams out of an unaided probe.
 
 Probe only the strands the lesson needs. Stop diagnosing when there is enough
 evidence to choose a useful teaching step; do not force failure or map the entire
-subject. If the user wants an exposition without questions, honour that, work
-from their stated background and leave unobserved abilities unassessed.
+subject. Before moving to the plan, be able to name the observed performance
+and its conditions, any support tried and its effect, remaining uncertainty,
+and why the next target follows. An unanswered prompt or self-reported level
+cannot meet this checkpoint. Support may be untested; do not claim a ZPD boundary without
+both independent and assisted evidence. The assessment reference defines the
+checkpoint and how to handle missing prerequisites.
 
-## Choose the path
+## Phase 2 — Plan and map dependencies
 
 Start with definitions, observations or assumptions the learner can use, and
 make their connection to the goal explicit. State the conditions under which a
@@ -71,14 +95,22 @@ claim holds: do not turn a useful approximation into a universal truth or call
 a derived result an axiom. Verify uncertain foundations before relying on them,
 using the sources or tools available; distinguish evidence from assumptions.
 
-For a substantial lesson, briefly explain the next target and the evidence for
-choosing it. Prefer a useful task the learner can approach with limited support;
-if the available support does not help, repair a prerequisite or change the
-representation. A dependency diagram can make this choice clearer. Resolve
-missing scope that would change the lesson, but proceed when the user's request
-already gives enough direction.
+Present a brief plan grounded in the probe: the target, the evidence for choosing
+it, and the order of practice. Include a small dependency map connecting the
+relevant prerequisites to that target and its application. Read
+[visual teaching guidance](references/visuals.md) for the map's construction and
+host-compatible format. Generate the map in this phase; do not merely offer one.
+Use a readable text diagram if rendering is unavailable, and honour an explicit
+request to omit visuals.
 
-## Develop and check understanding
+Prefer a useful task the learner can approach with limited support; if the
+available support does not help, repair a prerequisite or change representation.
+Keep untested prerequisites visible as uncertain. Resolve missing scope that
+would change the lesson, but proceed from the presented plan to teaching when
+the user's request already gives enough direction. No separate plan approval is
+required unless the user asks for that checkpoint.
+
+## Phase 3 — Teach, check and adapt
 
 For each target, follow the assessment loop in the reference:
 
@@ -105,10 +137,10 @@ or mark subsequent work on the same item as exposed to the answer. Evaluate
 open-ended responses against the task's criteria, accepting defensible
 alternatives. Repair an ambiguous question instead of penalising the learner.
 
-## Use visuals when they help
+## Add teaching visuals when they help
 
-Show a visual when the learning depends on a relationship, sequence, dependency,
-spatial arrangement or changing quantity. Read
+Beyond the planning map, show a visual when learning depends on a relationship,
+sequence, dependency, spatial arrangement or changing quantity. Read
 [visual teaching guidance](references/visuals.md) when producing one. The visual
 should make a specific teaching point and remain understandable through the
 host's available display. A prose-only explanation is sufficient when a picture
@@ -120,7 +152,12 @@ Recap what the learner demonstrated independently, what still benefited from
 support, and the next useful practice or review. Do not claim retention from an
 immediate correct answer. Use the learner-model reference's portable snapshot
 when the user asks to save or resume progress, keeping the destination they
-choose; do not automatically create a transcript or learning database. Use the
-host's supported maths and image formatting, with readable text alternatives.
+choose. For any requested study note, follow the learner-model reference's
+saved-note guidance: identify the note's purpose, assessment status and one
+clear next action. Include the
+current plan and dependency map when they have been established; label a
+pre-assessment path provisional. Do not automatically create a transcript or
+learning database. Use the host's supported maths and image formatting, with
+readable text alternatives.
 
 Teaching inspiration: [Amos Blomqvist's learn](https://github.com/amosblomqvist/learn).

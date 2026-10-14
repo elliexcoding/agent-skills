@@ -4,6 +4,35 @@ Choose the representation from the idea and the available display. The teaching
 point should survive a move between agent harnesses, even when the presentation
 changes. No particular extension, rendering service or agent role is required.
 
+## Dependency map for the plan
+
+After the opening probes, draw a small map of the chosen learning path. Use
+actual prerequisite relationships: what the learner needs to understand or do
+to approach the target, and where they will apply it. A single concept can have
+a compact map; do not expand it into a whole syllabus.
+
+- Label the relevant foundations, the current target and the intended application.
+  Mark observed independent or supported performance only where evidence exists;
+  mark important untested prerequisites as untested.
+- Make arrows mean "supports learning or performing" unless a more specific
+  relationship is stated. Distinguish prerequisite edges from contrasts,
+  chronology and logical derivation. Language conventions and empirical facts
+  need not be derivable from axioms to belong in a useful learning map.
+- Explain how the probe informed the starting point and next step. The map
+  represents the current teaching hypothesis; revise it when answers change
+  that hypothesis. It is not a measurement of the learner's entire knowledge.
+- Prefer a small Mermaid flowchart when the destination supports it. Otherwise
+  show a labelled text diagram, for example:
+  `prerequisite [observed] → target [to practise] → new application [untested]`.
+  Use the fallback directly rather than requiring a renderer or extension.
+- Add a short caption explaining the dependencies. A diagram containing target
+  reasoning counts as support for subsequent assessment; use fresh tasks with
+  that help removed when checking independence.
+
+The required planning map comes after probing so it does not reveal the initial
+diagnostic answer. If the learner requests a map before assessment, mark it as
+provisional and account for any answer exposure when choosing later probes.
+
 ## Pick a representation
 
 | Teaching point | Suitable representation |

@@ -4,6 +4,26 @@ These examples show how to apply the same learner model and assessment loop
 across subjects. They are fictional teaching scenarios, not observations about
 the current learner. Use only the example that helps with the present task.
 
+## Choosing a topic for exam preparation
+
+Suppose the learner says, "I want to prepare for an advanced exam; pick a point
+to practise." The request gives a goal and authorises topic selection; it does
+not demonstrate ability. Choose a provisional focus relevant to that goal,
+checking uncertain syllabus claims, and ask a contextual diagnostic question.
+End the opening interaction there and wait for the answer.
+
+Adapt the next probe to what the learner actually does. Once the evidence
+supports a teaching choice, explain that choice and draw the prerequisite →
+target → application map, with the observed and untested areas distinguished.
+Then teach and check a fresh application. The map might connect understanding
+the context and a relevant contrast to choosing a form, then applying it in a
+new passage; the concrete nodes depend on the topic and responses.
+
+If asked to save a note before the learner answers, label it as a worksheet with
+assessment pending and one next action. Do not fill in a learner profile or
+present the provisional topic as a diagnosed need. If the learner requests only
+a worksheet, provide that instead of requiring an interactive session.
+
 ## Advanced language use
 
 Suppose a learner wants more nuanced participation in professional discussion

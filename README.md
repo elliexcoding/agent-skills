@@ -29,7 +29,7 @@ agent runtime is being used.
 | `rust-tech-lead` | Provides senior Rust engineering guidance for architecture, debugging, testing, performance work, and review. |
 | `scope-software-task` | Turns ambiguous software changes into repository-grounded task contracts and independently verifiable implementation plans. |
 | `show-me` | Provides general visual explanations on request using HumanLayer's unchanged skill, with diagrams, code sketches, and focused HTML artefacts. |
-| `teach` | Guides study through a learner model, adaptive assessment, graduated support, transfer checks, reinforcement and visuals, with portable conversation fallbacks. |
+| `teach` | Guides study through explicit probing, an evidence-based plan and dependency map, then adaptive teaching, transfer checks and reinforcement, with portable conversation fallbacks. |
 | `worktree-branch` | Creates meaningful task-based branches for new or detached agent worktrees so temporary work directories remain identifiable. |
 | `writing-feature-comments` | Keeps feature comments concise and useful to human readers, explaining purpose, rationale, and verified concerns. |
 

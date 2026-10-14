@@ -68,6 +68,39 @@ than inventing probabilities. Keep self-reported confidence separate.
 - If the teacher's answer or explanation was wrong, correct it and invalidate
   affected evidence. Do not retain a misconception label caused by bad teaching.
 
+## Make saved study notes unambiguous
+
+When the user requests a Markdown study note, state its purpose and assessment
+status near the top. A practice worksheet contains tasks to attempt; a learning
+snapshot records observed performance. A combined note should distinguish those
+sections. Generated questions, example answers and answer keys are teaching
+materials, not evidence about the learner.
+
+Use an accurate status: **pending** when no response is recorded, **in progress**
+when the initial probes have not yet justified a plan, **initial probing complete**
+when the checkpoint supports a next target, or **declined** when the learner
+opts out. Initial probing complete does not mean the topic is mastered or that
+assessment stops during teaching.
+
+Preserve a compact record of the actual task, learner response, help given and
+result. A faithful short summary is enough; include wording where it explains
+the judgement. Use "not yet observed" for missing evidence. If chat responses
+are unavailable, say so rather than inferring that assessment never happened.
+Include the plan's rationale and dependency map once established, or label an
+unassessed path provisional. Finish with one clear next action and where to
+respond, rather than several competing starting instructions.
+
+For a worksheet created before any responses, an appropriate opening is:
+
+> Purpose: Practice worksheet; difficulty has not yet been calibrated.
+> Assessment status: Pending — no learner responses recorded.
+> Next action: Answer the first diagnostic question without opening the hints;
+> send the response in chat so the tutor can select the next probe.
+
+Keep model answers separate from first-attempt prompts. Collapsible sections
+are a convenience, not evidence that the learner has not read them. Record known
+answer exposure and use a fresh task when necessary.
+
 ## Continue across sessions
 
 Conversation context is enough for the current session. If the user asks to
@@ -80,14 +113,22 @@ Use this structure, scaled to the number of active targets:
 ```markdown
 # Learning snapshot
 
+Purpose: Learning snapshot
 Goal:
 Session date or identifier:
+Assessment status:
 Task conditions and aids:
 Learner preferences:
 
 | Target | Independent evidence | Support tried and response | Interpretation and uncertainty | Transfer or later review | Next action |
 | --- | --- | --- | --- | --- | --- |
 
+## Current plan
+Target and reason for choosing it:
+Dependency map (or labelled text diagram):
+
+## Continue here
+Next action and where to respond:
 Unresolved questions:
 Next useful review:
 ```

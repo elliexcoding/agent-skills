@@ -62,10 +62,35 @@ not establish that the subject is beyond the learner's developmental reach.
 | Repeated difficulty despite useful support | Check a prerequisite or change representation, keeping the meaningful goal. |
 | Conflicting results | Hold the judgement open; test the suspected difference in context, demand or assistance. |
 
-Stop placement probing once the evidence supports an actionable teaching target.
-The target may remain provisional. Do not exhaustively test every prerequisite,
-require a mistake on each strand, or keep increasing difficulty just to find a
-ceiling. Explain the next teaching choice briefly so the learner can redirect it.
+## Checkpoint from probing to planning
+
+Complete the opening diagnostic exchange before presenting a personalised plan.
+Use actual answers, including relevant responses already in the conversation.
+Adapt follow-up probes to resolve uncertainty that would change the immediate
+teaching choice; there is no fixed question count.
+
+The checkpoint should establish:
+
+- **Observed starting point:** Identify the task, the learner's response and
+  what it demonstrates under the agreed conditions. Record an unsuccessful
+  independent attempt as evidence too; do not invent a successful baseline.
+- **Response to help:** If assistance was tried, name it and the learner's
+  contribution afterwards. Otherwise record that supported performance is
+  untested. Help requested before an attempt leaves independence unknown.
+- **Actionable next target:** Explain why the evidence supports reinforcement,
+  a missing connection, a prerequisite or a further challenge. Probe a prerequisite
+  when uncertainty about it would change this immediate choice.
+- **Limits:** State which relevant abilities remain unassessed and what the
+  next task should resolve. An exam label or a supplied model answer supplies
+  no evidence of the learner's performance.
+
+Stop placement probing when this checkpoint is met, then show the plan and
+dependency map before the main lesson. The target may remain provisional. Do
+not exhaustively test every prerequisite, require a mistake on each strand, or
+keep increasing difficulty just to find a ceiling. Brief help during diagnosis
+is part of assessment; if direct teaching becomes necessary, acknowledge the
+transition, give a compact plan and map, then teach. Do not delay needed help
+to complete a longer diagnostic battery.
 
 ## Reinforce and check transfer
 
@@ -103,7 +128,9 @@ was actually observed and identify the next useful probe.
 The distinction between independent performance and response to mediation is
 grounded in [Poehner's account of dynamic assessment](https://doi.org/10.1111/j.1473-4192.2010.00277.x).
 The hint descriptions and decision rules here are an implementation choice for
-conversational tutoring, not a published diagnostic scale.
+conversational tutoring, not a published diagnostic scale. The explicit
+probe → plan → teach sequence and planning map organise that workflow; these
+sources do not establish that this exact package is superior across subjects.
 
 [Karpicke and Roediger's retrieval study](https://pubmed.ncbi.nlm.nih.gov/18276894/)
 supports using retrieval beyond the first successful answer; its vocabulary
