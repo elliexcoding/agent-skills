@@ -1,12 +1,14 @@
 # Harness Seeding Guide
 
 Use this reference when changing the seeded file set, upgrading an existing
-repository, or customizing the harness beyond the default script.
+repository, or customising the harness beyond the default script.
 
 ## File Roles
 
 - `AGENTS.md`: Short context entry point. Keep it under roughly 100 lines and
   link to deeper docs.
+- `CLAUDE.md`: Imports the shared guide with `@AGENTS.md`. Keep any existing
+  Claude-specific instructions; do not duplicate the shared text.
 - `ARCHITECTURE.md`: Current architecture, dependency boundaries, invariants,
   and known seams where future agents should look first.
 - `docs/harness/README.md`: Defines the harness itself and how it is maintained.
@@ -33,10 +35,14 @@ repository, or customizing the harness beyond the default script.
 2. Run `seed_harness.py --dry-run`.
 3. Seed only missing files by default.
 4. Merge ideas into existing docs rather than creating duplicates.
+   The script preserves an existing `CLAUDE.md` unchanged. If it does not
+   already import the shared guide, add `@AGENTS.md` during the requested
+   guidance update while retaining its other instructions. Check for existing
+   imports or symlinks before adding a duplicate.
 5. Use `--force` only when the user explicitly requests overwriting generated
    harness files.
 
-## Customization Guidance
+## Customisation Guidance
 
 - Keep permanent instructions in `AGENTS.md` minimal.
 - Move detailed domain knowledge to `docs/`.
@@ -50,6 +56,6 @@ repository, or customizing the harness beyond the default script.
 Use these before changing a harness:
 
 ```sh
-rg -n "harness|AGENTS|architecture|quality|exec plan|technical debt" .
-rg --files -g 'AGENTS.md' -g 'ARCHITECTURE.md' -g 'docs/**'
+rg -n "harness|AGENTS|CLAUDE|architecture|quality|exec plan|technical debt" .
+rg --files -g 'AGENTS.md' -g 'CLAUDE.md' -g 'ARCHITECTURE.md' -g 'docs/**'
 ```

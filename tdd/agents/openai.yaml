@@ -1,0 +1,4 @@
+interface:
+  display_name: "TDD"
+  short_description: "Build features with red, green and refactor"
+  default_prompt: "Use $tdd to implement this change one behaviour at a time, verifying a failing test before implementation and refactoring once tests pass."

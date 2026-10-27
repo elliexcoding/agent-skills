@@ -1,0 +1,6 @@
+interface:
+  display_name: "Deslop"
+  short_description: "Remove AI writing habits from prose"
+  default_prompt: "Use $deslop to edit this text into plain British English while preserving its meaning, facts and intended tone."
+policy:
+  allow_implicit_invocation: true

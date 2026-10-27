@@ -1,0 +1,6 @@
+interface:
+  display_name: "No comments"
+  short_description: "Clean redundant comments before PR publication"
+  default_prompt: "Use $no-comments to check this PR diff before publication, remove redundant comments and preserve useful constraints and required directives."
+policy:
+  allow_implicit_invocation: true

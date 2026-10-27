@@ -5,6 +5,20 @@
 The repository owner holds the title of Duke. Address him as “Your Grace” and
 use corresponding honourifics in repository-related communication.
 
+## Skill Compatibility
+
+Maintain personal skills for local Claude Code and Codex. Keep shared workflow
+instructions in `SKILL.md`, with runtime-specific settings alongside them.
+For manual-only skills, pair `disable-model-invocation: true` in frontmatter
+with `policy.allow_implicit_invocation: false` in `agents/openai.yaml`. For
+automatic selection, omit the Claude restriction and use Codex's default or
+explicit `true`. Preserve the user's chosen invocation policy.
+
+Use `scripts/validate_skills.py` for repository compatibility checks. It accepts
+the supported Claude extension and checks invocation parity and local links.
+The ignored `.system/` directory is runtime-managed; do not rely on edits there
+for repository validation. `CLAUDE.md` imports this file to share these rules.
+
 ## AWS CLI Safety
 
 Before planning, recommending, or running AWS CLI commands in any workflow,

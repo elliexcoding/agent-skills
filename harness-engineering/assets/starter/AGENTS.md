@@ -1,7 +1,8 @@
 # {{PROJECT_NAME}} Agent Guide
 
-This file is the entry point for Codex. Keep it short and point to deeper,
-versioned project knowledge instead of duplicating it here.
+This is the shared guide for Codex and Claude Code. `CLAUDE.md` imports this
+file for Claude Code. Keep it short and point to deeper, versioned project
+knowledge instead of duplicating it here.
 
 ## Read When Relevant
 
@@ -16,10 +17,10 @@ Read what the task needs; this is a map, not a mandatory reading sequence.
 
 ## Working Rules
 
-- Read the relevant docs before changing behavior or architecture.
+- Read the relevant docs before changing behaviour or architecture.
 - Prefer small, reviewable changes with focused tests.
 - Preserve existing public contracts unless the task explicitly changes them.
-- Update docs when behavior, architecture, commands, or project assumptions
+- Update docs when behaviour, architecture, commands, or project assumptions
   change.
 - Add or update mechanical checks when a rule is likely to recur.
 - Treat repeated agent failure as a harness gap: missing docs, missing tests,

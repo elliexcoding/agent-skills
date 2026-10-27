@@ -1,6 +1,6 @@
 ---
 name: grill-me
-description: Interview the user about a plan, resolving design decisions one by one. Use only when the user explicitly invokes $grill-me.
+description: Interview the user about a plan, resolving design decisions one by one. Use only when the user explicitly invokes this skill.
 disable-model-invocation: true
 ---
 

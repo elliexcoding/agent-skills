@@ -7,9 +7,9 @@ description: Create or improve repository guidance, knowledge maps and quality c
 
 ## Overview
 
-Seed repositories with a small, agent-legible harness: a concise `AGENTS.md`,
-versioned docs as the system of record, architecture and quality maps, and
-places to capture plans, decisions, and technical debt.
+Seed repositories with shared guidance for Codex and Claude Code: a concise
+`AGENTS.md`, a `CLAUDE.md` import, versioned docs as the system of record,
+architecture and quality maps, and places for plans, decisions and technical debt.
 
 ## Context Discipline
 
@@ -18,7 +18,7 @@ places to capture plans, decisions, and technical debt.
 - Read `references/harness-principles.md` only when adapting the principles or
   explaining the rationale.
 - Read `references/seeding-guide.md` only when changing the seeded file set,
-  handling an existing repo, or customizing the workflow.
+  handling an existing repo, or customising the workflow.
 - Do not paste the full OpenAI article into project files. Distill its ideas
   into local, project-specific operating rules.
 
@@ -26,7 +26,7 @@ places to capture plans, decisions, and technical debt.
 
 1. Inspect the target repository:
    - `pwd`
-   - `rg --files -g 'AGENTS.md' -g 'ARCHITECTURE.md' -g 'docs/**'`
+   - `rg --files -g 'AGENTS.md' -g 'CLAUDE.md' -g 'ARCHITECTURE.md' -g 'docs/**'`
    - project package/config files relevant to the stack
 2. Decide whether this is a fresh seed, an existing-repo upgrade or a targeted
    guidance edit. Keep the artefact set proportionate to the request.
@@ -42,6 +42,8 @@ places to capture plans, decisions, and technical debt.
    - Do not overwrite existing docs unless explicitly asked.
    - Merge concepts into existing docs when they already serve the same role.
    - Keep `AGENTS.md` short and link to deeper docs.
+   - Preserve an existing `CLAUDE.md`. When shared guidance should apply there,
+     add an `@AGENTS.md` import if missing, without replacing its instructions.
 5. Review the diff and adapt placeholders to the real project.
 6. Add project-specific validation commands, architecture boundaries, and
    recurring cleanup expectations.
@@ -50,7 +52,8 @@ places to capture plans, decisions, and technical debt.
 
 The default script creates missing files from `assets/starter/`:
 
-- `AGENTS.md`: short entry point and map for Codex.
+- `AGENTS.md`: shared instructions and map for Codex and Claude Code.
+- `CLAUDE.md`: imports `AGENTS.md` for Claude Code, including older versions.
 - `ARCHITECTURE.md`: current architecture, boundaries, and invariants.
 - `docs/harness/README.md`: harness purpose and maintenance loop.
 - `docs/harness/principles.md`: local golden principles.
@@ -77,5 +80,6 @@ python3 <skill-dir>/scripts/seed_harness.py --target <repo-root> --force
 - Run the script with `--dry-run` before seeding a non-empty repository.
 - After seeding, inspect `git diff`.
 - Confirm `AGENTS.md` is a map, not a manual.
+- Confirm `CLAUDE.md` imports the shared guide and retains existing instructions.
 - Confirm deeper docs are linked and discoverable.
 - Confirm validation commands are executable or clearly marked as TODOs.

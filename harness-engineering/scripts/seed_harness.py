@@ -58,7 +58,7 @@ def seed(target: Path, project_name: str, dry_run: bool, force: bool) -> int:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Seed OpenAI-style harness engineering docs into a repo."
+        description="Seed shared Codex and Claude Code guidance into a repo."
     )
     parser.add_argument(
         "--target",

@@ -1,7 +1,7 @@
 # Harness
 
 This directory describes how {{PROJECT_NAME}} is made legible, testable, and
-maintainable for Codex and future maintainers.
+maintainable for Codex, Claude Code and future maintainers.
 
 ## Contents
 
@@ -10,7 +10,7 @@ maintainable for Codex and future maintainers.
 
 ## Maintenance Loop
 
-When Codex struggles, do not only retry the same prompt. Identify which harness
+When an agent struggles, do not only retry the same prompt. Identify which harness
 capability is missing:
 
 - documentation map
