@@ -24,6 +24,7 @@ Shared validation helpers live in `scripts/`.
 | `grill-me` | Interviews the user about a plan, resolving design decisions one by one; available only through manual invocation. |
 | `jev-file-scan` | Uses Jev with Codex and Claude Code to rank source snippets by semantic relevance, with local file selection and file/line references. |
 | `harness-engineering` | Seeds shared Codex and Claude Code guidance through `AGENTS.md` and a `CLAUDE.md` import, plus architecture notes, quality gates, plans, decisions and technical-debt tracking. |
+| `leetcode-coach` | Coaches LeetCode-style interview practice with questions, a graduated hint ladder, debriefs and mock interviews, withholding solutions unless the user asks to see them. |
 | `no-comments` | Cleans redundant or stale comments before PR creation or branch pushes, preserving useful rationale, contracts and functional directives. |
 | `refactor-safely` | Guides behavior-preserving refactors with explicit scope, characterization tests, small steps, validation, and reviewable change discipline. |
 | `refreshing-linear-issues` | Records timestamped implementation updates in Linear issue bodies and posts a confirmation comment after the body change is verified. |
@@ -85,6 +86,10 @@ Shared validation helpers live in `scripts/`.
 │   ├── assets/
 │   ├── references/
 │   └── scripts/
+├── leetcode-coach/
+│   ├── SKILL.md
+│   ├── agents/
+│   └── references/
 ├── no-comments/
 │   ├── SKILL.md
 │   ├── LICENSE

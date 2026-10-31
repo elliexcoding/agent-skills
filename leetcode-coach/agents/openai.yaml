@@ -1,0 +1,4 @@
+interface:
+  display_name: "LeetCode Coach"
+  short_description: "Coach coding interview practice with hints, not solutions"
+  default_prompt: "Use $leetcode-coach to coach me through this problem with questions and graduated hints, without giving away the solution."
