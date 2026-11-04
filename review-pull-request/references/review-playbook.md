@@ -12,6 +12,20 @@ Prioritize impact, reachability, reversibility, blast radius, and uncertainty. I
 
 Check correctness; data handling; concurrency; errors and partial failure; API, schema, and configuration compatibility; performance; observability; rollout and rollback; maintainability; documentation; and scope. Treat tests as reviewed code, not proof by themselves.
 
+## Leadership judgement
+
+Support the user's development towards L5 and beyond through explicit reasoning about system and team outcomes. Use a supplied company competency framework when available; level names vary between organisations, and a PR review alone cannot establish readiness for a role.
+
+Select the lenses relevant to the change:
+
+- **Software architect:** examine system boundaries, contracts, data ownership, coupling and failure propagation. Relate complexity, cost and future flexibility to known requirements; explain when the existing design is sufficient and when an alternative is justified.
+- **Tech lead:** examine compatibility, dependencies, delivery sequencing and operational readiness. Surface concrete migration, rollout, recovery or observability decisions where the change warrants them, including coordination needed across components or teams.
+- **Engineering manager:** connect technical decisions to user impact, delivery priorities, maintenance and support burden. Consider effort against risk reduction and clarify ownership or coordination gaps supported by the context. Keep feedback about the work; do not infer an author's competence, motives or team performance.
+
+For each useful observation, connect repository evidence or documented constraints to an outcome, explain the relevant trade-off, and recommend a proportionate next step. Distinguish work needed in this PR from a possible follow-up; suggest an owner only when ownership is established in the available context. Use focused questions for uncertainty that could change a decision.
+
+Scale this analysis to the change. A small PR may warrant only a brief explanation of why its scope and design are appropriate. Avoid speculative redesigns, process demands and comments added merely to sound senior. Apply the existing evidence threshold and severity rules to any proposed finding; leadership suggestions alone do not justify blocking a merge.
+
 ## Test review
 
 Verify that tests exercise the claimed behavior and relevant failure paths, use realistic inputs and environments, remain deterministic, and would fail without the change. Identify missing evidence without promoting it to a finding unless the evidence threshold is met.
@@ -36,8 +50,20 @@ For oversized, generated, binary, dependency-heavy, or incomplete PRs, state the
 
 ## Report contract
 
-Write the report in this exact order: findings; recommended verdict and confidence; review coverage; CI and local-validation evidence; open questions; residual risks and limitations. Order findings by severity and then confidence. Each finding contains a concise imperative title, location, trigger, consequence, evidence, and smallest remediation. Use `No findings.` when none meet the threshold.
+Follow the report order in [the skill's output contract](../SKILL.md#output). Order findings by severity and then confidence. Each finding contains a concise imperative title, location, trigger, consequence, evidence, and smallest remediation. Use `No findings.` when none meet the threshold.
 
-## Comment quality
+## Review response quality
 
 Explain why each finding matters, distinguish requirements from suggestions, remain respectful, and keep one concern per finding.
+
+### Actionable recommendations
+
+Include recommendations that help the user make a decision. Cite the relevant location or explain the scope of a system-wide observation, connect the observed behaviour to its impact, and offer a bounded recommendation or focused question. Explain the cost or trade-off when proposing an alternative. Use plain, collaborative language that makes the reasoning easy to discuss within the harness response.
+
+Distinguish required changes, non-blocking suggestions and questions. A required change must be supported by a finding; an unanswered question is not proof of a defect. Specific acknowledgement of a sound design decision can be useful when it explains why the trade-off is appropriate. Do not manufacture concerns or praise to fill a quota.
+
+### Explain the leadership judgement
+
+Briefly explain the leadership judgement exercised by a specific observation in this review, such as reasoning across system boundaries, prioritising delivery risk or helping a team make a trade-off. Where useful, suggest a next question or action that would deepen the user's understanding or help resolve a decision.
+
+Integrate this explanation into the response's leadership perspective, grounded in the reviewed evidence and reasoning. Attribute leadership impact to the user only when their actual actions and outcomes are known. Keep the entire review and development guidance in the current harness conversation.

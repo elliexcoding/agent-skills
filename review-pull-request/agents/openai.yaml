@@ -1,4 +1,4 @@
 interface:
   display_name: "Review Pull Request"
-  short_description: "Risk-focused, read-only pull request review"
-  default_prompt: "Use $review-pull-request to review this PR and recommend a verdict without publishing comments."
+  short_description: "Evidence-led PR reviews with leadership guidance"
+  default_prompt: "Use $review-pull-request to review this PR and return the findings, recommended verdict and leadership perspective directly in this conversation, without posting PR comments or submitting a review."
