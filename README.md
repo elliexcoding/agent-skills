@@ -28,7 +28,7 @@ Shared validation helpers live in `scripts/`.
 | `no-comments` | Cleans redundant or stale comments before PR creation or branch pushes, preserving useful rationale, contracts and functional directives. |
 | `refactor-safely` | Guides behavior-preserving refactors with explicit scope, characterization tests, small steps, validation, and reviewable change discipline. |
 | `refreshing-linear-issues` | Records timestamped implementation updates in Linear issue bodies and posts a confirmation comment after the body change is verified. |
-| `review-pull-request` | Performs read-only, L5-calibrated pull-request reviews with evidence-backed findings and deep Python, Rust, Kubernetes, Terraform, and security lenses. |
+| `review-pull-request` | Returns read-only pull-request reviews directly in Codex, Claude Code or Pi, with evidence-backed findings and architecture and leadership guidance for development towards L5 and beyond. Includes Python, Rust, Kubernetes, Terraform and security lenses. |
 | `rust-tech-lead` | Provides senior Rust engineering guidance for architecture, debugging, testing, performance work, and review. |
 | `scope-software-task` | Turns ambiguous software changes into repository-grounded task contracts and independently verifiable implementation plans. |
 | `show-me` | Provides general visual explanations on request using HumanLayer's unchanged skill, with diagrams, code sketches, and focused HTML artefacts. |

@@ -7,8 +7,8 @@ description: Assess merge-readiness of a pull request, proposed merge or stacked
 
 ## Contract
 
-- Act as an L5-equivalent reviewer accountable for code health and production risk.
-- Keep reviewed artefacts and external review state read-only; renaming the current chat as described below is permitted. Recommend a verdict but never publish it.
+- Review with ownership of code health, production risk and wider system impact, supporting the user's development towards L5 and beyond.
+- Keep reviewed artefacts and external review state read-only; renaming the current chat as described below is permitted. Recommend a verdict in the response, but never post PR comments or submit a review or verdict.
 - Review from the current checkout and its already checked-out branch. Do not create, enter, or hand off to another worktree, clone, branch, or checkout, and do not switch branches for the review.
 - Lead with material findings, not a change summary or praise.
 
@@ -17,11 +17,11 @@ description: Assess merge-readiness of a pull request, proposed merge or stacked
 1. Resolve the PR identity and rename the current chat using the convention below before inspecting the diff.
 2. Establish objective, acceptance criteria, base/head, repository instructions, and changed-file inventory.
 3. Read the PR description, linked context, existing CI evidence, and dependency changes.
-4. Classify risk and inspect the architectural main path before line-level details.
+4. Classify risk and inspect the architectural main path before line-level details. Apply the relevant architecture, tech lead and engineering management lenses in the review playbook.
 5. Review every changed line in scope plus enough callers, configuration, tests, and documentation to prove behavior.
 6. Load specialist guidance only for the behaviours and risks present in the diff.
 7. Disconfirm candidate findings by searching for guards, invariants, tests, and caller guarantees.
-8. Report findings, verdict, evidence, coverage, and residual risk.
+8. Report findings, verdict, evidence, coverage, and residual risk. Include leadership analysis and explain the judgement behind useful recommendations directly in the same response.
 
 ## Review Chat Name
 
@@ -42,7 +42,7 @@ Whenever the user asks to review a PR in Codex or Claude Code, rename the curren
 
 ## Linked Linear Context
 
-- When the user supplies a Linear issue URL, or the PR links one, retrieve the review-relevant issue context through the runtime's native Linear MCP tools in Codex or Claude. Discover or load those MCP tools when needed.
+- When the user supplies a Linear issue URL, or the PR links one, retrieve the review-relevant issue context through the current harness's available Linear MCP tools. Discover or load those MCP tools when needed.
 - Do not use browser, web, screenshot, or computer-use tools to access Linear, even when an authenticated browser session is available or MCP discovery takes longer.
 - If Linear MCP is unavailable or fails, stop the Linear lookup, report the MCP problem and request explicit approval before any browser fallback. Continue unrelated review only when applicable instructions permit it; use `INCONCLUSIVE` when essential context is missing.
 - Keep Linear access read-only and fetch only material context, such as the issue description, acceptance criteria, relevant comments, and linked or parent issues.
@@ -66,7 +66,7 @@ Select references by changed behaviour, not file extension alone. Read the
 relevant sections and expand when a finding depends on neighbouring guidance.
 These lenses replace loading separate general or language review skills.
 
-- [Review playbook](references/review-playbook.md): risk, severity and finding calibration for nontrivial reviews.
+- [Review playbook](references/review-playbook.md): leadership judgement and feedback for each review, plus risk, severity and finding calibration for nontrivial reviews.
 - [Python](references/python.md): Python runtime, typing, packaging or async changes.
 - [Rust](references/rust.md): ownership, features, unsafe/FFI or concurrency changes.
 - [Kubernetes](references/kubernetes.md): workload, controller, Helm/Kustomize or cluster-policy changes.
@@ -84,8 +84,11 @@ Use this report order:
 4. CI/local evidence.
 5. Open questions.
 6. Residual risks.
+7. Leadership perspective: relevant architectural trade-offs, delivery and team impact, and the judgement behind the recommendations.
 
 Use exactly one recommended verdict: `APPROVE`, `COMMENT`, `REQUEST CHANGES`, or `INCONCLUSIVE`. Use `INCONCLUSIVE` when missing, pending, or failed essential evidence prevents a responsible merge-readiness judgment; missing evidence itself is not an actionable finding. State `No findings.` when appropriate; never invent an issue to appear thorough.
+
+Return the complete review directly in the current harness conversation, whether Codex, Claude Code or Pi. Integrate leadership guidance into this response; do not produce a separate set of comments intended for posting to the PR. Keep the leadership perspective proportional to the change, omit empty subsections and avoid repeating findings verbatim.
 
 ## Red Flags
 
