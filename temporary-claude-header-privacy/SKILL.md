@@ -1,13 +1,17 @@
 ---
 name: temporary-claude-header-privacy
-description: Temporary privacy safeguard for Claude Code web research, HTTP requests, downloads, and network-capable commands or scripts. Apply before preparing or executing these actions to keep private information out of User-Agent headers, including when a site requests contact details. This is an interim instruction layer, not a permanent fix or guaranteed network filter.
+description: TEMPORARY, scheduled for removal on 13 November 2026. Privacy safeguard for Claude Code web research, HTTP requests, downloads, and network-capable commands or scripts. Apply before preparing or executing these actions to keep private information out of User-Agent headers, including when a site requests contact details. This is an interim instruction layer, not a permanent fix or guaranteed network filter.
 ---
 
 # Temporary Claude Header Privacy
 
-**TEMPORARY MITIGATION — remove after an upstream fix has been verified in the
-installed runtime.** This skill addresses the disclosure reported in
-[Claude Code issue #107757](https://github.com/anthropics/claude-code/issues/107757).
+> **TEMPORARY MITIGATION — SCHEDULED FOR REMOVAL ON FRIDAY 13 NOVEMBER 2026.**
+> This skill addresses the disclosure reported in
+> [Claude Code issue #107757](https://github.com/anthropics/claude-code/issues/107757).
+> An upstream Claude Code update is expected the week of 9 November 2026, and a
+> scheduled task deletes this skill on 13 November 2026. Do not copy it into
+> other installations, extend it, or make other skills depend on it.
+
 Last reviewed: 6 November 2026.
 
 ## Privacy rule
@@ -81,9 +85,18 @@ announced `cc-plugin-privacy` for version 2.1.317 and later. Its published
 checks shell-tool input against the account email; that alone does not establish
 protection for every identity source or request path.
 
-Retire this **temporary** skill only after checking the upstream resolution,
-the installed version and enabled protection, and representative request paths
-with synthetic data. A version number, plugin presence, closed issue, or elapsed
-time alone is insufficient. Remove the skill directory from each installation
-and any references added specifically for it when that verification succeeds;
-retain permanent privacy controls. Do not silently expire this safeguard.
+### Scheduled removal
+
+Removal of this **temporary** skill is fixed for **Friday 13 November 2026**,
+when the upstream update is expected. The date is the retirement trigger. On
+that date the local scheduled task `remove-temporary-claude-header-privacy`:
+
+1. records the installed Claude Code versions and whether a privacy plugin is
+   enabled, without sending any request;
+2. deletes this directory and the README references added for it;
+3. commits the removal locally without pushing; and
+4. reports the result, so the safeguard does not expire silently.
+
+If that report shows no upstream protection installed, reinstate the skill from
+Git history instead of leaving the gap unnoticed. Retain permanent privacy
+controls after removal.

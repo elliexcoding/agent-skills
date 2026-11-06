@@ -1,5 +1,5 @@
 interface:
   display_name: "Temporary Claude Header Privacy"
-  short_description: "Temporary safeguard against private User-Agent data"
+  short_description: "Temporary until 13 Nov 2026: User-Agent privacy safeguard"
 policy:
   allow_implicit_invocation: true
