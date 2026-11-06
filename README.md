@@ -34,6 +34,7 @@ Shared validation helpers live in `scripts/`.
 | `show-me` | Provides general visual explanations on request using HumanLayer's unchanged skill, with diagrams, code sketches, and focused HTML artefacts. |
 | `tdd` | Implements features and bug fixes through red, green and refactor cycles, with behaviour-focused tests and controlled external dependencies. |
 | `teach` | Guides study through explicit probing, an evidence-based plan and dependency map, then adaptive teaching, transfer checks and reinforcement, with portable conversation fallbacks. |
+| `temporary-claude-header-privacy` | Temporary instruction safeguard against private data in Claude-generated User-Agent headers; stops unsafe requests and defines verification before retirement. It is not a network filter. |
 | `worktree-branch` | Creates meaningful task-based branches for new or detached agent worktrees so temporary work directories remain identifiable. |
 | `writing-feature-comments` | Keeps feature comments concise and useful to human readers, explaining purpose, rationale, and verified concerns. |
 
@@ -125,6 +126,9 @@ Shared validation helpers live in `scripts/`.
 ├── teach/
 │   ├── SKILL.md
 │   └── references/
+├── temporary-claude-header-privacy/
+│   ├── SKILL.md
+│   └── agents/
 ├── worktree-branch/
 │   ├── SKILL.md
 │   └── scripts/
@@ -155,6 +159,14 @@ Use the skill directory as the unit of installation. For each agent runtime:
 The skills are written to be readable by both Claude Code and Codex-style
 systems. Tool-specific metadata should be additive and should not replace the
 portable `SKILL.md` instructions.
+
+The **temporary** `temporary-claude-header-privacy` skill addresses
+[Claude Code issue #107757](https://github.com/anthropics/claude-code/issues/107757).
+It is eligible for automatic selection; explicitly invoke
+`/temporary-claude-header-privacy` in Claude Code before network work to load it.
+It provides behavioural instructions, not guaranteed interception. Retire it
+only after verifying the upstream fix and installed runtime as described in its
+[SKILL.md](temporary-claude-header-privacy/SKILL.md).
 
 ## Claude Code and Codex Compatibility
 

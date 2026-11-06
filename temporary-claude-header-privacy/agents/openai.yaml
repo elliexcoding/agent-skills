@@ -1,0 +1,5 @@
+interface:
+  display_name: "Temporary Claude Header Privacy"
+  short_description: "Temporary safeguard against private User-Agent data"
+policy:
+  allow_implicit_invocation: true
